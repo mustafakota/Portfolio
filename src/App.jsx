@@ -2,6 +2,7 @@ import { useEffect } from 'react'
 import Lenis from 'lenis'
 import gsap from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
+import { Analytics } from '@vercel/analytics/react'
 
 import Background3D from './components/Background3D'
 import HeroSection from './components/sections/HeroSection'
@@ -65,6 +66,7 @@ function App() {
         <JourneySection />
         <ContactSection />
       </main>
+      <Analytics />
     </>
   )
 }
