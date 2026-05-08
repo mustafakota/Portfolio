@@ -18,7 +18,13 @@ export default function Navbar() {
       style={{ position: 'fixed', top: 0, left: 0, width: '100%', zIndex: 100, padding: '24px 7vw', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}
     >
       <div style={{ fontSize: '1.5rem', fontFamily: "'Clash Display', sans-serif", fontWeight: 600, color: 'var(--text-primary)' }}>
-        <a href='/section/Hero'>Mustafa.</a>
+        <a
+          href="#hero"
+          onClick={(e) => handleScroll(e, '#hero')}
+          style={{ color: 'var(--text-primary)', textDecoration: 'none' }}
+        >
+          Mustafa.
+        </a>
       </div>
 
       <nav className="glass-panel" style={{ padding: '12px 32px', display: 'flex', gap: '32px' }}>
