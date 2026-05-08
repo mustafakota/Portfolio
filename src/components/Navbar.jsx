@@ -157,7 +157,6 @@ export default function Navbar() {
             borderRadius: '999px',
             color: 'white',
             cursor: 'pointer',
-            display: 'none',
             zIndex: 101
           }}
         >
