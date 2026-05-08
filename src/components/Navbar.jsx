@@ -18,13 +18,7 @@ export default function Navbar() {
       style={{ position: 'fixed', top: 0, left: 0, width: '100%', zIndex: 100, padding: '24px 7vw', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}
     >
       <div style={{ fontSize: '1.5rem', fontFamily: "'Clash Display', sans-serif", fontWeight: 600, color: 'var(--text-primary)' }}>
-        <a
-          href="#home"
-          onClick={(e) => handleScroll(e, '#home')}
-          style={{ color: 'var(--text-primary)', textDecoration: 'none' }}
-        >
-          Mustafa.
-        </a>
+        <a href='/section/Hero'>Mustafa.</a>
       </div>
 
       <nav className="glass-panel" style={{ padding: '12px 32px', display: 'flex', gap: '32px' }}>
@@ -33,6 +27,29 @@ export default function Navbar() {
         <a href="#journey" onClick={(e) => handleScroll(e, '#journey')} style={{ fontSize: '0.875rem', fontWeight: 500, color: 'var(--text-primary)', transition: 'color 0.3s ease' }} onMouseEnter={e => e.target.style.color = 'var(--text-secondary)'} onMouseLeave={e => e.target.style.color = 'var(--text-primary)'}>Journey</a>
         <a href="#contact" onClick={(e) => handleScroll(e, '#contact')} style={{ fontSize: '0.875rem', fontWeight: 500, color: 'var(--text-primary)', transition: 'color 0.3s ease' }} onMouseEnter={e => e.target.style.color = 'var(--text-secondary)'} onMouseLeave={e => e.target.style.color = 'var(--text-primary)'}>Contact</a>
       </nav>
+      <a
+        href="https://drive.google.com/file/d/1jg0Z7N0qVFPGq99sc09LgSnahF-CD-cI/view?usp=sharing"
+        target="_blank"
+        rel="noopener noreferrer"
+        style={{
+          padding: '10px 20px',
+          borderRadius: '999px',
+          background: 'white',
+          color: 'black',
+          fontSize: '0.875rem',
+          fontWeight: 600,
+          textDecoration: 'none',
+          transition: 'all 0.3s ease'
+        }}
+        onMouseEnter={(e) => {
+          e.target.style.transform = 'translateY(-2px)'
+        }}
+        onMouseLeave={(e) => {
+          e.target.style.transform = 'translateY(0px)'
+        }}
+      >
+        Resume
+      </a>
     </motion.header>
   )
 }
