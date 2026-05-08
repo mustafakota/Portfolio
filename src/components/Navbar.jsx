@@ -19,8 +19,8 @@ export default function Navbar() {
     >
       <div style={{ fontSize: '1.5rem', fontFamily: "'Clash Display', sans-serif", fontWeight: 600, color: 'var(--text-primary)' }}>
         <a
-          href="#hero"
-          onClick={(e) => handleScroll(e, '#hero')}
+          href="#home"
+          onClick={(e) => handleScroll(e, '#home')}
           style={{ color: 'var(--text-primary)', textDecoration: 'none' }}
         >
           Mustafa.
