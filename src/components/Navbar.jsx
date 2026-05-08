@@ -148,8 +148,11 @@ export default function Navbar() {
           className="mobile-menu-btn"
           onClick={() => setMenuOpen(!menuOpen)}
           style={{
-            background: 'transparent',
-            border: 'none',
+            background: 'rgba(255,255,255,0.06)',
+            backdropFilter: 'blur(20px)',
+            border: '1px solid rgba(255,255,255,0.08)',
+            padding: '10px',
+            borderRadius: '999px',
             color: 'white',
             cursor: 'pointer',
             display: 'none',

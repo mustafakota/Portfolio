@@ -130,10 +130,10 @@ export default function ProjectModal({ project, onClose }) {
           {/* Placeholder 1 */}
           {/* Image 1 */}
           <div
+            className={`case-study-image ${project.device}`}
             style={{
               width: '100%',
-              maxWidth: project.device === 'mobile' ? '400px' : '1000px',
-              height: project.device === 'mobile' ? '900px' : '800px',
+              maxWidth: project.device === 'mobile' ? '380px' : '1000px',
               margin: '0 auto 60px auto',
               borderRadius: '24px',
               overflow: 'hidden'
@@ -144,8 +144,9 @@ export default function ProjectModal({ project, onClose }) {
               alt={project.title}
               style={{
                 width: '100%',
-                height: '100%',
-                objectFit: 'cover'
+                height: 'auto',
+                display: 'block',
+                objectFit: 'contain'
               }}
             />
           </div>
@@ -159,12 +160,11 @@ export default function ProjectModal({ project, onClose }) {
           </div>
 
           {/* Placeholder 2 */}
-          {/* Image 1 */}
           <div
+            className={`case-study-image ${project.device}`}
             style={{
               width: '100%',
-              maxWidth: project.device === 'mobile' ? '400px' : '1000px',
-              height: project.device === 'mobile' ? '900px' : '800px',
+              maxWidth: project.device === 'mobile' ? '380px' : '1000px',
               margin: '0 auto 60px auto',
               borderRadius: '24px',
               overflow: 'hidden'
@@ -175,8 +175,9 @@ export default function ProjectModal({ project, onClose }) {
               alt={project.title}
               style={{
                 width: '100%',
-                height: '100%',
-                objectFit: 'cover'
+                height: 'auto',
+                display: 'block',
+                objectFit: 'contain'
               }}
             />
           </div>

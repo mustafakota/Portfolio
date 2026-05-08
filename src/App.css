@@ -86,3 +86,15 @@
     }
 
 }
+
+@media (max-width: 400px) {
+
+    .case-study-image.mobile {
+        max-width: 260px !important;
+    }
+
+    .case-study-image.desktop {
+        max-width: 100% !important;
+    }
+
+}
