@@ -150,6 +150,7 @@ export default function Navbar() {
           style={{
             background: 'rgba(255,255,255,0.06)',
             backdropFilter: 'blur(20px)',
+            WebkitBackdropFilter: 'blur(20px)',
             border: '1px solid rgba(255,255,255,0.08)',
             padding: '10px',
             borderRadius: '999px',
