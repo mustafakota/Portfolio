@@ -187,8 +187,29 @@ export default function ProjectsSection() {
             <div className="project-grid">
 
               <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', order: i % 2 === 0 ? 1 : 2, width: '100%' }}>
-                <div style={{ width: proj.device === 'mobile' ? 'auto' : '100%', height: proj.device === 'mobile' ? '70vh' : '60vh', minHeight: '400px', aspectRatio: proj.device === 'mobile' ? '9/16' : 'auto', overflow: 'hidden', borderRadius: '24px', position: 'relative' }}>
-                  <img className="project-image" src={proj.image} alt={proj.title} style={{ width: proj.device === 'mobile' ? '120%' : '120%', height: '100%', objectFit: 'cover', position: 'absolute', left: '-10%', transition: 'transform 0.5s ease' }} onMouseEnter={(e) => e.target.style.transform = 'scale(1.05)'} onMouseLeave={(e) => e.target.style.transform = 'scale(1)'} />
+                <div style={{ width: proj.device === 'mobile' ? 'auto' : '100%', height: proj.device === 'mobile' ? '70vh' : '260px', minHeight: '400px', aspectRatio: proj.device === 'mobile' ? '9/16' : 'auto', overflow: 'hidden', borderRadius: '24px', position: 'relative' }}>
+                  <img
+                    className="project-image"
+                    src={proj.image}
+                    alt={proj.title}
+                    style={{
+                      width: proj.device === 'mobile' ? '120%' : '100%',
+                      height: '100%',
+                      objectFit: proj.device === 'mobile' ? 'cover' : 'contain',
+                      position: 'absolute',
+                      left: proj.device === 'mobile' ? '-10%' : '0',
+                      transition: 'transform 0.5s ease',
+                      filter: proj.device === 'desktop'
+                        ? 'drop-shadow(0 40px 80px rgba(0,0,0,0.45))'
+                        : 'none'
+                    }}
+                    onMouseEnter={(e) =>
+                      e.target.style.transform = 'scale(1.05)'
+                    }
+                    onMouseLeave={(e) =>
+                      e.target.style.transform = 'scale(1)'
+                    }
+                  />
                   <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to top, rgba(13,13,14,0.4), transparent)', pointerEvents: 'none' }}></div>
                 </div>
               </div>
