@@ -155,7 +155,7 @@ export default function Navbar() {
             borderRadius: '999px',
             color: 'white',
             cursor: 'pointer',
-            display: 'none'
+
           }}
         >
           {menuOpen ? <X size={26} /> : <Menu size={26} />}
