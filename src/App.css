@@ -1,7 +1,3 @@
-.mobile-menu-btn {
-    display: none;
-}
-
 /* Removed default vite styles */
 @media (max-width: 400px) {
 
@@ -16,6 +12,11 @@
     .mobile-menu-btn {
         display: block !important;
     }
+
+    .mobile-menu-btn {
+        display: none;
+    }
+
 
     .hero-section {
         padding-top: 120px !important;

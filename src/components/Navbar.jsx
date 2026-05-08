@@ -148,14 +148,11 @@ export default function Navbar() {
           className="mobile-menu-btn"
           onClick={() => setMenuOpen(!menuOpen)}
           style={{
-
-            backdropFilter: 'blur(20px)',
-
+            background: 'transparent',
+            border: 'none',
             padding: '10px',
-            borderRadius: '999px',
             color: 'white',
-            cursor: 'pointer',
-
+            cursor: 'pointer'
           }}
         >
           {menuOpen ? <X size={26} /> : <Menu size={26} />}
@@ -176,7 +173,13 @@ export default function Navbar() {
             display: 'flex',
             flexDirection: 'column',
             gap: '18px',
-            zIndex: 100
+            zIndex: 100,
+
+            background: 'rgba(20,20,20,0.75)',
+            backdropFilter: 'blur(20px)',
+            WebkitBackdropFilter: 'blur(20px)',
+            border: '1px solid rgba(255,255,255,0.08)',
+            boxShadow: '0 8px 32px rgba(0,0,0,0.3)'
           }}
         >
           <a
