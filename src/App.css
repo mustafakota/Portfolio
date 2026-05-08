@@ -1,1 +1,88 @@
 /* Removed default vite styles */
+@media (max-width: 400px) {
+
+    header {
+        padding: 18px 6vw !important;
+    }
+
+    .desktop-nav {
+        display: none !important;
+    }
+
+    .mobile-menu-btn {
+        display: block !important;
+    }
+
+    .hero-section {
+        padding-top: 120px !important;
+        padding-bottom: 100px !important;
+        padding-left: 10px !important;
+        padding-right: 10px !important;
+    }
+
+    .hero-title {
+        font-size: 3.4rem !important;
+        line-height: 0.95 !important;
+    }
+
+    .hero-image {
+        width: 190px !important;
+        height: 280px !important;
+        transform: translateY(20px) !important;
+    }
+
+    .hero-content {
+        padding: 0 20px;
+    }
+
+    .hero-description {
+        font-size: 1rem !important;
+        line-height: 1.7 !important;
+        max-width: 100% !important;
+    }
+
+}
+
+@media (max-width: 400px) {
+
+    .resume-btn {
+        padding: 8px 14px !important;
+        font-size: 0.7rem !important;
+    }
+
+}
+
+@media (max-width: 400px) {
+
+    .about-grid {
+        grid-template-columns: 1fr !important;
+        gap: 60px !important;
+    }
+
+    .about-story {
+        text-align: center;
+    }
+
+    .about-story .text-section-title {
+        font-size: 2.5rem !important;
+    }
+
+    .about-story .text-body {
+        font-size: 0.95rem !important;
+        line-height: 1.8 !important;
+    }
+
+    .about-tools h3 {
+        text-align: center;
+        font-size: 2rem !important;
+    }
+
+    .tools-grid {
+        grid-template-columns: 1fr !important;
+    }
+
+    .tools-grid .glass-panel {
+        padding: 18px !important;
+    }
+
+}
