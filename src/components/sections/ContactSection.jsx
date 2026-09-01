@@ -66,7 +66,13 @@ export default function ContactSection() {
       </div>
 
       {/* Magnetic Email Button */}
-      <div style={{ display: 'flex', justifyContent: 'center', marginTop: '100px', marginBottom: '80px' }}>
+      <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', marginTop: '100px', marginBottom: '80px', padding: '0 20px', textAlign: 'center' }}>
+        <p style={{ fontSize: 'clamp(1.5rem, 3vw, 2rem)', fontFamily: "'Clash Display', sans-serif", fontWeight: 500, marginBottom: '8px' }}>
+          Have a product, website, or idea that needs to be designed and built?
+        </p>
+        <p style={{ fontSize: '1.25rem', color: 'var(--text-secondary)', marginBottom: '40px' }}>
+          Let's talk.
+        </p>
         <a
           ref={buttonRef}
           href="mailto:mustafakota88@gmail.com?subject=Project Inquiry"

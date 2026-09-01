@@ -5,6 +5,20 @@ import ProjectModal from '../ProjectModal'
 
 const projects = [
   {
+    title: 'ALUXSYSTEM',
+    role: 'Independent Product — Designer & Builder',
+    image: '/Screenshot (157).png',
+    image1: '/Screenshot (159).png',
+    image2: '/Screenshot (160).png',
+    desc: 'An independent SaaS product I designed and built to turn a real business workflow into a structured digital system.',
+    tags: ['SaaS', 'UI/UX', 'Web Development', 'AI-assisted Development'],
+    intro: 'Built to take a software idea beyond just Figma design. It involved product thinking, UX/UI, web development, database integration, and AI-assisted development.',
+    goal: 'Demonstrate the ability to design a product and understand what it takes to actually build it. Progression: Idea → Understand the workflow → Product structure → UX/UI → Development → Testing → Iteration → Working product.',
+    conclusion: 'Built as a real software product to solve a real-world problem, demonstrating full lifecycle product creation capabilities.',
+    link: '#',
+    device: 'desktop'
+  },
+  {
     title: 'Dayora',
     role: 'Productivity Web App',
     image: '/main ui.png',

@@ -4,7 +4,7 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger'
 
 gsap.registerPlugin(ScrollTrigger)
 
-const aboutText = "I am a multi-disciplinary designer focused on creating digital experiences that feel human. I blend strategic user research with premium aesthetics to craft interfaces that don't just work they resonate. My approach is rooted in empathy, iterative prototyping, and an obsessive attention to detail."
+const aboutText = "I am a Product Designer who blends user research, interface design, and practical development to build digital products. My focus is on understanding real customer needs, improving workflows, and turning complex problems into intuitive software experiences."
 
 export default function JourneySection() {
   const containerRef = useRef()
@@ -52,19 +52,39 @@ export default function JourneySection() {
           </p>
 
           <div style={{ display: 'flex', flexDirection: 'column' }}>
-            {/* I removed the 2 parts you mentioned wanting to delete to keep it ultra-clean */}
             {[
-              { role: ' Personal Projects', place: 'Freelance', date: 'Sep 2025 - Present' },
-              { role: ' UI/UX Designer', place: 'Boardway India', date: 'Jan 2025 - Aug 2025' }
+              {
+                role: 'Product Designer',
+                place: 'AluSync',
+                date: 'June 2026 — Present',
+                tasks: [
+                  'Communicate with prospects and understand their requirements and feedback.',
+                  'Identify opportunities to improve product workflows and user experience.',
+                  'Contribute UI/UX improvements and interface refinement.',
+                  'Participate in discussions around product features and improvements.',
+                  'Help communicate and present the product through social media and digital content.'
+                ]
+              },
+              { role: 'UI/UX Designer', place: 'Boardway India', date: 'Jan 2025 - Aug 2025' },
+              { role: 'Personal Projects', place: 'Freelance', date: 'Sep 2025 - Present' }
             ].map((item, i) => (
-              <div key={i} style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', borderBottom: '1px solid rgba(255,255,255,0.05)', padding: '32px 0', flexWrap: 'wrap', gap: '16px' }}>
-                <div>
-                  <h3 style={{ fontSize: 'clamp(1.25rem, 3vw, 1.5rem)', fontWeight: 500, marginBottom: '8px' }}>{item.role}</h3>
-                  <p style={{ color: 'var(--text-secondary)', fontSize: '1rem' }}>{item.place}</p>
+              <div key={i} style={{ display: 'flex', flexDirection: 'column', borderBottom: '1px solid rgba(255,255,255,0.05)', padding: '32px 0', gap: '24px' }}>
+                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', flexWrap: 'wrap', gap: '16px' }}>
+                  <div>
+                    <h3 style={{ fontSize: 'clamp(1.25rem, 3vw, 1.5rem)', fontWeight: 500, marginBottom: '8px' }}>{item.role}</h3>
+                    <p style={{ color: 'var(--text-secondary)', fontSize: '1rem' }}>{item.place}</p>
+                  </div>
+                  <div style={{ padding: '8px 16px', border: '1px solid rgba(255,255,255,0.1)', borderRadius: '30px', fontSize: '0.875rem', color: 'var(--text-secondary)' }}>
+                    {item.date}
+                  </div>
                 </div>
-                <div style={{ padding: '8px 16px', border: '1px solid rgba(255,255,255,0.1)', borderRadius: '30px', fontSize: '0.875rem', color: 'var(--text-secondary)' }}>
-                  {item.date}
-                </div>
+                {item.tasks && (
+                  <ul style={{ listStyleType: 'disc', paddingLeft: '20px', color: 'var(--text-secondary)', display: 'flex', flexDirection: 'column', gap: '12px', margin: 0 }}>
+                    {item.tasks.map((task, idx) => (
+                      <li key={idx} style={{ fontSize: '1rem', lineHeight: '1.5' }}>{task}</li>
+                    ))}
+                  </ul>
+                )}
               </div>
             ))}
           </div>

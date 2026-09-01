@@ -1,12 +1,15 @@
 import { useEffect, useRef } from 'react'
 import gsap from 'gsap'
 import {
-  LayoutTemplate,
-  Image,
-  PenTool,
-  Sparkles
+  Layout,
+  MousePointer,
+  Rocket,
+  Sparkles,
+  Lightbulb,
+  MessageSquare,
+  Code
 } from 'lucide-react'
-import { FaFigma, FaHtml5 } from 'react-icons/fa'
+import { FaFigma } from 'react-icons/fa'
 
 export default function AboutSection() {
   const sectionRef = useRef()
@@ -49,12 +52,14 @@ export default function AboutSection() {
   }, [])
 
   const tools = [
+    { name: 'Product Design', icon: <Layout size={24} /> },
+    { name: 'UI/UX', icon: <MousePointer size={24} /> },
     { name: 'Figma', icon: <FaFigma size={24} /> },
-    { name: 'Adobe XD', icon: <LayoutTemplate size={24} /> },
-    { name: 'Photoshop', icon: <Image size={24} /> },
-    { name: 'Illustrator', icon: <PenTool size={24} /> },
-    { name: 'HTML5/CSS3', icon: <FaHtml5 size={24} /> },
-    { name: 'Generative AI', icon: <Sparkles size={24} /> }
+    { name: 'Prototyping', icon: <Rocket size={24} /> },
+    { name: 'Web / HTML / CSS', icon: <Code size={24} /> },
+    { name: 'AI Development', icon: <Sparkles size={24} /> },
+    { name: 'Product Thinking', icon: <Lightbulb size={24} /> },
+    { name: 'User Feedback', icon: <MessageSquare size={24} /> }
   ]
 
   return (
@@ -91,22 +96,20 @@ export default function AboutSection() {
             className="text-body"
             style={{ marginBottom: '24px' }}
           >
-            I am a UI/UX & Product Designer with a strong
-            foundation in user research, wireframing, and visual
-            design. I believe in translating user needs into
-            intuitive digital experiences through structured
-            design processes.
+            I am a Product Designer who focuses on understanding
+            real users and turning ideas into usable software. I
+            work across UI/UX, product improvement, and digital
+            product building.
           </p>
 
           <p
             className="text-body"
             style={{ marginBottom: '40px' }}
           >
-            I am passionate about creating clean, user-centric
-            interfaces and continuously improving through
-            real-world projects. My technical skills span across
-            interaction design, usability testing, and
-            information architecture.
+            I believe that great design goes beyond the screen.
+            My approach combines interface design, customer
+            feedback, and practical implementation to build
+            digital products that solve real problems.
           </p>
 
           <div

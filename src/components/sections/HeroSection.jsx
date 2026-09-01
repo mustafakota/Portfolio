@@ -84,7 +84,7 @@ export default function HeroSection() {
             textAlign: 'center'
           }}
         >
-          UI/UX & Product Designer
+          Product Designer
         </motion.p>
 
         {/* Huge Name */}
@@ -193,7 +193,7 @@ export default function HeroSection() {
                 transform: 'translateY(100%)'
               }}
             >
-              Designing Digital Experiences
+              I Design and Build Digital Products
             </span>
           </div>
 
@@ -207,7 +207,7 @@ export default function HeroSection() {
                 fontStyle: 'italic'
               }}
             >
-              That Feel Human.
+              That Solve Real Problems.
             </span>
           </div>
         </h2>
@@ -227,9 +227,9 @@ export default function HeroSection() {
             fontSize: '1.125rem'
           }}
         >
-          UI/UX & Product Designer with a strong foundation in user
-          research, wireframing, and visual design. Passionate about
-          creating clean, user-centric interfaces.
+          Product Designer focused on UI/UX, product improvement,
+          customer-facing product experiences, and assisted
+          development.
         </motion.p>
 
         {/* Buttons */}
