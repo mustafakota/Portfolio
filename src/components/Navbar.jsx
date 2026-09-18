@@ -125,7 +125,7 @@ export default function Navbar() {
         {/* Resume */}
         <a
           className="resume-btn"
-          href="https://drive.google.com/file/d/1jg0Z7N0qVFPGq99sc09LgSnahF-CD-cI/view?usp=sharing"
+          href="https://drive.google.com/file/d/1jExP9RF2EDszj4kvk0AQ7DP8c-PFoMRA/view?usp=sharing"
           target="_blank"
           rel="noopener noreferrer"
           style={{
