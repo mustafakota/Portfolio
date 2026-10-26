@@ -69,7 +69,6 @@ export default function HeroSection() {
 
         {/* Subtitle */}
         <motion.p
-          className="hero-subtitle"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, delay: 3.2, ease: 'power3.out' }}
@@ -91,7 +90,6 @@ export default function HeroSection() {
         {/* Huge Name */}
         <h1
           className="hero-title"
-          aria-label="Mustafa Kota — Product Designer &amp; Builder"
           style={{
             fontSize: 'clamp(5rem, 15vw, 15rem)',
             fontFamily: "'Clash Display', sans-serif",
@@ -123,9 +121,6 @@ export default function HeroSection() {
               {letter}
             </span>
           ))}
-          <span style={{ position: 'absolute', width: '1px', height: '1px', padding: 0, margin: '-1px', overflow: 'hidden', clip: 'rect(0, 0, 0, 0)', border: 0 }}>
-            Kota — Product Designer &amp; Builder
-          </span>
         </h1>
 
         {/* Portrait */}
@@ -145,8 +140,8 @@ export default function HeroSection() {
           }}
         >
           <img
-            src="/mustafa-portrait.webp"
-            alt="Mustafa Kota — Product Designer and Builder Portrait"
+            src="/ChatGPT Image May 7, 2026, 05_54_45 PM.png"
+            alt="Mustafa Portrait"
             style={{
               width: '100%',
               height: '100%',
@@ -183,7 +178,6 @@ export default function HeroSection() {
         }}
       >
         <h2
-          className="hero-heading"
           style={{
             fontSize: 'clamp(2rem, 4vw, 3rem)',
             fontFamily: "'Clash Display', sans-serif",
@@ -259,7 +253,6 @@ export default function HeroSection() {
             onClick={() =>
               window.lenis?.scrollTo('#projects', { duration: 1.5 })
             }
-            className="hero-btn-primary"
             style={{
               padding: '16px 32px',
               backgroundColor: 'var(--text-primary)',
@@ -278,7 +271,7 @@ export default function HeroSection() {
             onClick={() =>
               window.lenis?.scrollTo('#contact', { duration: 1.5 })
             }
-            className="hero-btn-secondary glass-panel"
+            className="glass-panel"
             style={{
               padding: '16px 32px',
               color: 'var(--text-primary)',

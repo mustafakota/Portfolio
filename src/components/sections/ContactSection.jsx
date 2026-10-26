@@ -46,7 +46,7 @@ export default function ContactSection() {
   }, [])
 
   return (
-    <section id="contact" ref={sectionRef} className="contact-section" style={{ width: '100%', minHeight: '100vh', display: 'flex', flexDirection: 'column', justifyContent: 'flex-end', paddingTop: '120px', paddingBottom: '40px', paddingLeft: '5vw', paddingRight: '5vw', overflow: 'hidden' }}>
+    <section id="contact" ref={sectionRef} style={{ width: '100%', minHeight: '100vh', display: 'flex', flexDirection: 'column', justifyContent: 'flex-end', paddingTop: '120px', paddingBottom: '40px', paddingLeft: '5vw', paddingRight: '5vw', overflow: 'hidden' }}>
 
       {/* Infinite Scrolling Marquee */}
       <div style={{ width: '100vw', marginLeft: '-5vw', overflow: 'hidden', whiteSpace: 'nowrap', display: 'flex', alignItems: 'center' }}>
@@ -54,10 +54,10 @@ export default function ContactSection() {
           {/* We repeat the block twice so the -50% shift creates a seamless infinite loop */}
           {[...Array(2)].map((_, i) => (
             <span key={i} style={{ display: 'inline-block' }}>
-              <span className="contact-marquee-text" style={{ fontSize: 'clamp(4rem, 10vw, 10rem)', fontFamily: "'Clash Display', sans-serif", fontWeight: 700, lineHeight: 0.8, textTransform: 'uppercase', color: 'transparent', WebkitTextStroke: '1px var(--text-secondary)', paddingRight: '50px' }}>
+              <span style={{ fontSize: 'clamp(4rem, 10vw, 10rem)', fontFamily: "'Clash Display', sans-serif", fontWeight: 700, lineHeight: 0.8, textTransform: 'uppercase', color: 'transparent', WebkitTextStroke: '1px var(--text-secondary)', paddingRight: '50px' }}>
                 LET'S TALK <span style={{ color: 'var(--text-secondary)', WebkitTextStroke: '0' }}>—</span>
               </span>
-              <span className="contact-marquee-text" style={{ fontSize: 'clamp(4rem, 10vw, 10rem)', fontFamily: "'Clash Display', sans-serif", fontWeight: 700, lineHeight: 0.8, textTransform: 'uppercase', color: 'transparent', WebkitTextStroke: '1px var(--text-secondary)', paddingRight: '50px' }}>
+              <span style={{ fontSize: 'clamp(4rem, 10vw, 10rem)', fontFamily: "'Clash Display', sans-serif", fontWeight: 700, lineHeight: 0.8, textTransform: 'uppercase', color: 'transparent', WebkitTextStroke: '1px var(--text-secondary)', paddingRight: '50px' }}>
                 LET'S TALK <span style={{ color: 'var(--text-secondary)', WebkitTextStroke: '0' }}>—</span>
               </span>
             </span>
@@ -66,16 +66,15 @@ export default function ContactSection() {
       </div>
 
       {/* Magnetic Email Button */}
-      <div className="contact-cta-wrap" style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', marginTop: '100px', marginBottom: '80px', padding: '0 20px', textAlign: 'center' }}>
-        <p className="contact-cta-title" style={{ fontSize: 'clamp(1.5rem, 3vw, 2rem)', fontFamily: "'Clash Display', sans-serif", fontWeight: 500, marginBottom: '8px' }}>
+      <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', marginTop: '100px', marginBottom: '80px', padding: '0 20px', textAlign: 'center' }}>
+        <p style={{ fontSize: 'clamp(1.5rem, 3vw, 2rem)', fontFamily: "'Clash Display', sans-serif", fontWeight: 500, marginBottom: '8px' }}>
           Have a product, website, or idea that needs to be designed and built?
         </p>
-        <p className="contact-cta-subtitle" style={{ fontSize: '1.25rem', color: 'var(--text-secondary)', marginBottom: '40px' }}>
+        <p style={{ fontSize: '1.25rem', color: 'var(--text-secondary)', marginBottom: '40px' }}>
           Let's talk.
         </p>
         <a
           ref={buttonRef}
-          className="contact-cta-btn"
           href="mailto:mustafakota88@gmail.com?subject=Project Inquiry"
           style={{
             padding: '24px 64px',
@@ -104,7 +103,7 @@ export default function ContactSection() {
       </div>
 
       {/* Premium Footer Grid */}
-      <div className="contact-footer-grid" style={{ marginTop: 'auto', display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: '60px', borderTop: '1px solid rgba(255,255,255,0.1)', paddingTop: '60px', position: 'relative' }}>
+      <div style={{ marginTop: 'auto', display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: '60px', borderTop: '1px solid rgba(255,255,255,0.1)', paddingTop: '60px', position: 'relative' }}>
 
         {/* Socials */}
         <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
@@ -129,7 +128,7 @@ export default function ContactSection() {
         </div>
 
         {/* Copyright & Back to Top */}
-        <div className="contact-footer-bottom-col" style={{ display: 'flex', flexDirection: 'row', gap: '32px' }}>
+        <div style={{ display: 'flex', flexDirection: 'row', gap: '32px' }}>
           <div>
             <h4 style={{ color: 'var(--text-secondary)', fontSize: '0.875rem', textTransform: 'uppercase', letterSpacing: '2px', marginBottom: '8px' }}>Copyright</h4>
             <p style={{ fontSize: '1.125rem', margin: 0 }}>© {new Date().getFullYear()} Mustafa.</p>
@@ -137,7 +136,6 @@ export default function ContactSection() {
           </div>
 
           <button
-            className="contact-back-to-top"
             onClick={() => window.lenis?.scrollTo(0, { duration: 2.0 })}
             style={{
               background: 'transparent',

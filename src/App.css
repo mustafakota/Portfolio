@@ -1,671 +1,106 @@
-/* ==========================================================================
-   MOBILE-FIRST ART-DIRECTED DESIGN SYSTEM & RESPONSIVE POLISH
-   ========================================================================== */
+ .mobile-menu-btn {
+     display: none;
+ }
 
-/* Base navigation styles */
-.mobile-menu-btn {
-  display: none;
-}
+ /* Removed default vite styles */
+ @media (max-width: 400px) {
 
-.desktop-nav {
-  display: flex;
-}
+     header {
+         padding: 18px 6vw !important;
+     }
 
-/* ==========================================================================
-   MOBILE & TABLET VIEWPORT PASS (<= 768px)
-   ========================================================================== */
-@media (max-width: 768px) {
+     .desktop-nav {
+         display: none !important;
+     }
 
-  /* Global Section Container & 3D Atmosphere */
-  .section-container {
-    padding-top: clamp(48px, 8vh, 72px) !important;
-    padding-bottom: clamp(48px, 8vh, 72px) !important;
-    padding-left: clamp(16px, 5vw, 24px) !important;
-    padding-right: clamp(16px, 5vw, 24px) !important;
-  }
+     .mobile-menu-btn {
+         display: block !important;
+     }
 
-  .background-3d-wrapper {
-    opacity: 0.28 !important;
-    transform: scale(0.85);
-    transform-origin: center center;
-  }
 
-  /* ------------------------------------------------------------------------
-     1. NAVIGATION
-     ------------------------------------------------------------------------ */
-  header.navbar-header {
-    padding: clamp(12px, 3.5vw, 16px) clamp(16px, 5vw, 24px) !important;
-    background: rgba(13, 13, 14, 0.75) !important;
-    backdrop-filter: blur(20px) !important;
-    -webkit-backdrop-filter: blur(20px) !important;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.05) !important;
-  }
 
-  .navbar-logo {
-    font-size: clamp(1.2rem, 4.5vw, 1.4rem) !important;
-  }
+     .hero-section {
+         padding-top: 120px !important;
+         padding-bottom: 100px !important;
+         padding-left: 10px !important;
+         padding-right: 10px !important;
+     }
 
-  .desktop-nav {
-    display: none !important;
-  }
+     .hero-title {
+         font-size: 3.4rem !important;
+         line-height: 0.95 !important;
+     }
 
-  .navbar-actions {
-    display: flex !important;
-    align-items: center !important;
-    gap: 10px !important;
-  }
+     .hero-image {
+         width: 190px !important;
+         height: 280px !important;
+         transform: translateY(20px) !important;
+     }
 
-  .resume-btn {
-    padding: 7px 15px !important;
-    font-size: 0.78rem !important;
-    height: 34px !important;
-    border-radius: 999px !important;
-    background: #ffffff !important;
-    color: #000000 !important;
-    display: inline-flex !important;
-    align-items: center !important;
-    justify-content: center !important;
-    font-weight: 600 !important;
-    text-decoration: none !important;
-    white-space: nowrap !important;
-    transition: transform 0.2s ease, opacity 0.2s ease !important;
-  }
+     .hero-content {
+         padding: 0 20px;
+     }
 
-  .resume-btn:active {
-    transform: scale(0.96);
-  }
+     .hero-description {
+         font-size: 1rem !important;
+         line-height: 1.7 !important;
+         max-width: 100% !important;
+     }
 
-  .mobile-menu-btn {
-    display: inline-flex !important;
-    align-items: center !important;
-    justify-content: center !important;
-    width: 38px !important;
-    height: 38px !important;
-    border-radius: 50% !important;
-    background: rgba(255, 255, 255, 0.06) !important;
-    border: 1px solid rgba(255, 255, 255, 0.1) !important;
-    color: #ffffff !important;
-    cursor: pointer !important;
-    transition: background 0.2s ease !important;
-    flex-shrink: 0 !important;
-  }
+ }
 
-  .mobile-menu-btn:active {
-    background: rgba(255, 255, 255, 0.14) !important;
-  }
+ @media (max-width: 400px) {
 
-  .mobile-menu-dropdown {
-    position: absolute !important;
-    top: 64px !important;
-    right: clamp(16px, 5vw, 24px) !important;
-    width: min(210px, calc(100vw - 32px)) !important;
-    padding: 10px !important;
-    border-radius: 18px !important;
-    display: flex !important;
-    flex-direction: column !important;
-    gap: 4px !important;
-    z-index: 200 !important;
-    background: rgba(18, 18, 22, 0.94) !important;
-    backdrop-filter: blur(24px) !important;
-    -webkit-backdrop-filter: blur(24px) !important;
-    border: 1px solid rgba(255, 255, 255, 0.1) !important;
-    box-shadow: 0 16px 40px rgba(0, 0, 0, 0.6) !important;
-  }
+     .resume-btn {
+         padding: 8px 14px !important;
+         font-size: 0.7rem !important;
+     }
 
-  .mobile-menu-link {
-    min-height: 44px !important;
-    display: flex !important;
-    align-items: center !important;
-    padding: 0 14px !important;
-    border-radius: 10px !important;
-    font-size: 0.92rem !important;
-    font-weight: 500 !important;
-    color: var(--text-primary) !important;
-    text-decoration: none !important;
-    transition: background 0.2s ease !important;
-  }
+ }
 
-  .mobile-menu-link:active,
-  .mobile-menu-link:hover {
-    background: rgba(255, 255, 255, 0.08) !important;
-  }
+ @media (max-width: 400px) {
 
-  /* ------------------------------------------------------------------------
-     2. HERO SECTION
-     ------------------------------------------------------------------------ */
-  .hero-section {
-    min-height: auto !important;
-    padding-top: clamp(74px, 11vh, 92px) !important;
-    padding-bottom: clamp(24px, 4vh, 36px) !important;
-    padding-left: clamp(16px, 5vw, 24px) !important;
-    padding-right: clamp(16px, 5vw, 24px) !important;
-    justify-content: flex-start !important;
-  }
+     .about-grid {
+         grid-template-columns: 1fr !important;
+         gap: 60px !important;
+     }
 
-  .hero-composition {
-    margin-bottom: 16px !important;
-    width: 100% !important;
-  }
+     .about-story {
+         text-align: center;
+     }
 
-  .hero-subtitle {
-    font-size: clamp(0.78rem, 3.2vw, 0.9rem) !important;
-    letter-spacing: 2.5px !important;
-    margin-bottom: 10px !important;
-  }
+     .about-story .text-section-title {
+         font-size: 2.5rem !important;
+     }
 
-  .hero-title {
-    font-size: clamp(2.3rem, 11vw, 3.6rem) !important;
-    line-height: 0.9 !important;
-    letter-spacing: -0.02em !important;
-    padding-top: 6px !important;
-    white-space: nowrap !important;
-  }
+     .about-story .text-body {
+         font-size: 0.95rem !important;
+         line-height: 1.8 !important;
+     }
 
-  .hero-image {
-    width: clamp(140px, 38vw, 195px) !important;
-    height: clamp(190px, 50vw, 255px) !important;
-    border-radius: 130px 130px 16px 16px !important;
-    transform: translateY(8px) !important;
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6) !important;
-    border: 1px solid rgba(255, 255, 255, 0.1) !important;
-  }
+     .about-tools h3 {
+         text-align: center;
+         font-size: 2rem !important;
+     }
 
-  .hero-content {
-    padding: 0 !important;
-    max-width: 100% !important;
-    width: 100% !important;
-  }
+     .tools-grid {
+         grid-template-columns: 1fr !important;
+     }
 
-  .hero-heading {
-    font-size: clamp(1.4rem, 5.2vw, 2rem) !important;
-    line-height: 1.25 !important;
-    margin-bottom: 12px !important;
-    font-weight: 500 !important;
-  }
+     .tools-grid .glass-panel {
+         padding: 18px !important;
+     }
 
-  .hero-heading div {
-    padding-bottom: 4px !important;
-  }
+ }
 
-  .hero-description {
-    font-size: clamp(0.92rem, 3vw, 1.02rem) !important;
-    line-height: 1.6 !important;
-    max-width: 480px !important;
-    margin: 0 auto 16px !important;
-  }
+ @media (max-width: 400px) {
 
-  .hero-buttons {
-    display: flex !important;
-    flex-direction: row !important;
-    gap: 12px !important;
-    justify-content: center !important;
-    align-items: center !important;
-    width: 100% !important;
-    flex-wrap: wrap !important;
-  }
+     .case-study-image.mobile {
+         max-width: 260px !important;
+     }
 
-  .hero-btn-primary {
-    padding: 12px 24px !important;
-    font-size: 0.875rem !important;
-    min-height: 44px !important;
-    border-radius: 22px !important;
-    background-color: var(--text-primary) !important;
-    color: var(--bg-color) !important;
-    border: 1px solid var(--text-primary) !important;
-    font-weight: 550 !important;
-    display: inline-flex !important;
-    align-items: center !important;
-    justify-content: center !important;
-    cursor: pointer !important;
-    transition: transform 0.2s ease !important;
-  }
+     .case-study-image.desktop {
+         max-width: 100% !important;
+     }
 
-  .hero-btn-secondary {
-    padding: 12px 24px !important;
-    font-size: 0.875rem !important;
-    min-height: 44px !important;
-    border-radius: 22px !important;
-    color: var(--text-primary) !important;
-    border: 1px solid rgba(255, 255, 255, 0.15) !important;
-    font-weight: 500 !important;
-    display: inline-flex !important;
-    align-items: center !important;
-    justify-content: center !important;
-    cursor: pointer !important;
-    transition: background 0.2s ease !important;
-  }
-
-  /* ------------------------------------------------------------------------
-     3. ABOUT SECTION
-     ------------------------------------------------------------------------ */
-  #about.section-container {
-    min-height: auto !important;
-    padding-top: clamp(48px, 8vh, 68px) !important;
-    padding-bottom: clamp(48px, 8vh, 68px) !important;
-    padding-left: clamp(16px, 5vw, 24px) !important;
-    padding-right: clamp(16px, 5vw, 24px) !important;
-  }
-
-  .about-grid {
-    grid-template-columns: 1fr !important;
-    gap: 32px !important;
-  }
-
-  .about-story {
-    text-align: left !important;
-  }
-
-  .about-story .text-section-title {
-    font-size: clamp(1.85rem, 6.5vw, 2.5rem) !important;
-    line-height: 1.15 !important;
-    letter-spacing: -0.03em !important;
-    margin-bottom: 16px !important;
-    text-align: left !important;
-  }
-
-  .about-story .text-body {
-    font-size: 0.95rem !important;
-    line-height: 1.65 !important;
-    margin-bottom: 14px !important;
-    text-align: left !important;
-  }
-
-  .about-story div[style*="borderLeft"] {
-    border-left: 2px solid var(--accent-color) !important;
-    padding-left: 14px !important;
-    margin-top: 20px !important;
-    text-align: left !important;
-  }
-
-  .about-story div[style*="borderLeft"] p {
-    font-size: clamp(1.05rem, 3.8vw, 1.3rem) !important;
-    line-height: 1.4 !important;
-    text-align: left !important;
-  }
-
-  .about-tools h3 {
-    text-align: left !important;
-    font-size: clamp(1.3rem, 4.5vw, 1.6rem) !important;
-    margin-bottom: 14px !important;
-  }
-
-  .tools-grid {
-    grid-template-columns: repeat(2, 1fr) !important;
-    gap: 10px !important;
-  }
-
-  .tools-grid .glass-panel {
-    padding: 12px 14px !important;
-    gap: 10px !important;
-    border-radius: 14px !important;
-    min-height: 52px !important;
-    display: flex !important;
-    align-items: center !important;
-  }
-
-  .tools-grid .glass-panel span {
-    font-size: clamp(0.78rem, 2.4vw, 0.88rem) !important;
-    font-weight: 500 !important;
-    line-height: 1.25 !important;
-  }
-
-  /* ------------------------------------------------------------------------
-     4. PROJECTS SECTION (MOBILE OVERRIDES)
-     ------------------------------------------------------------------------ */
-  .hollow-bg-text {
-    display: none !important;
-  }
-
-  .project-slide {
-    padding: clamp(32px, 6vh, 48px) 0 !important;
-  }
-
-  .intro-slide-content {
-    padding: 24px clamp(16px, 5vw, 24px) !important;
-  }
-
-  .intro-title {
-    font-size: clamp(1.9rem, 6.5vw, 2.6rem) !important;
-    line-height: 1.15 !important;
-    margin-bottom: 12px !important;
-  }
-
-  .intro-desc {
-    font-size: 0.95rem !important;
-    line-height: 1.6 !important;
-  }
-
-  .intro-scroll-indicator {
-    margin-top: 24px !important;
-  }
-
-  .project-grid {
-    padding: 0 clamp(16px, 5vw, 24px) !important;
-    gap: 18px !important;
-  }
-
-  .project-kicker {
-    display: flex !important;
-    align-items: flex-start !important;
-    gap: 8px !important;
-    font-size: 0.72rem !important;
-    line-height: 1.4 !important;
-    letter-spacing: 1.5px !important;
-    margin-bottom: 10px !important;
-  }
-
-  .project-kicker-dot {
-    margin-top: 4px !important;
-    flex-shrink: 0 !important;
-  }
-
-  .project-title {
-    font-size: clamp(1.65rem, 5.5vw, 2.2rem) !important;
-    line-height: 1.16 !important;
-    margin-bottom: 10px !important;
-  }
-
-  .project-desc {
-    font-size: clamp(0.9rem, 2.8vw, 0.98rem) !important;
-    line-height: 1.6 !important;
-    margin-bottom: 14px !important;
-  }
-
-  .project-tags {
-    gap: 6px !important;
-    margin-bottom: 18px !important;
-  }
-
-  .project-tag-pill {
-    padding: 4px 10px !important;
-    font-size: 0.74rem !important;
-    border-radius: 8px !important;
-  }
-
-  .project-mockup-container {
-    max-width: 100% !important;
-    padding-bottom: 16px !important;
-    padding-right: 12px !important;
-    margin-bottom: 12px !important;
-  }
-
-  .browser-mockup.primary {
-    width: 90% !important;
-  }
-
-  .browser-mockup.secondary {
-    width: 46% !important;
-    bottom: -8px !important;
-    right: 0 !important;
-  }
-
-  .browser-chrome {
-    height: 28px !important;
-    padding: 0 10px !important;
-  }
-
-  .browser-address-bar {
-    padding: 1px 8px !important;
-    font-size: 0.65rem !important;
-  }
-
-  .project-actions {
-    display: flex !important;
-    flex-direction: row !important;
-    gap: 10px !important;
-    width: 100% !important;
-  }
-
-  .btn-project-primary,
-  .btn-project-secondary {
-    flex: 1 1 auto !important;
-    height: 44px !important;
-    padding: 0 16px !important;
-    font-size: 0.825rem !important;
-    border-radius: 22px !important;
-  }
-
-  /* ------------------------------------------------------------------------
-     5. JOURNEY SECTION
-     ------------------------------------------------------------------------ */
-  #journey.journey-section {
-    min-height: auto !important;
-    padding-top: clamp(48px, 8vh, 68px) !important;
-    padding-bottom: clamp(48px, 8vh, 72px) !important;
-    padding-left: clamp(16px, 5vw, 24px) !important;
-    padding-right: clamp(16px, 5vw, 24px) !important;
-  }
-
-  .journey-kicker {
-    margin-bottom: 16px !important;
-    font-size: 0.78rem !important;
-    letter-spacing: 2px !important;
-  }
-
-  .journey-lead-heading {
-    font-size: clamp(1.4rem, 5vw, 2rem) !important;
-    line-height: 1.3 !important;
-    column-gap: 0.25em !important;
-    row-gap: 0.1em !important;
-  }
-
-  .journey-experience-wrap {
-    margin-top: clamp(36px, 7vh, 52px) !important;
-    padding-top: 28px !important;
-  }
-
-  .journey-experience-kicker {
-    margin-bottom: 20px !important;
-    font-size: 0.78rem !important;
-    letter-spacing: 2px !important;
-  }
-
-  .journey-item {
-    padding: 18px 0 !important;
-    gap: 14px !important;
-  }
-
-  .journey-item h3 {
-    font-size: clamp(1.15rem, 3.6vw, 1.35rem) !important;
-    margin-bottom: 4px !important;
-  }
-
-  .journey-item p {
-    font-size: 0.92rem !important;
-  }
-
-  .journey-date-pill {
-    padding: 5px 12px !important;
-    font-size: 0.76rem !important;
-  }
-
-  .journey-task-list {
-    gap: 8px !important;
-    padding-left: 18px !important;
-  }
-
-  .journey-task-list li {
-    font-size: 0.88rem !important;
-    line-height: 1.5 !important;
-  }
-
-  /* ------------------------------------------------------------------------
-     6. CONTACT & FOOTER SECTION
-     ------------------------------------------------------------------------ */
-  #contact.contact-section {
-    min-height: auto !important;
-    padding-top: clamp(48px, 8vh, 68px) !important;
-    padding-bottom: 28px !important;
-    padding-left: clamp(16px, 5vw, 24px) !important;
-    padding-right: clamp(16px, 5vw, 24px) !important;
-    justify-content: flex-start !important;
-  }
-
-  .contact-marquee-text {
-    font-size: clamp(2.4rem, 8vw, 3.8rem) !important;
-    padding-right: 24px !important;
-  }
-
-  .contact-cta-wrap {
-    margin-top: clamp(28px, 5vh, 44px) !important;
-    margin-bottom: clamp(32px, 6vh, 48px) !important;
-    padding: 0 !important;
-  }
-
-  .contact-cta-title {
-    font-size: clamp(1.3rem, 4.6vw, 1.7rem) !important;
-    line-height: 1.25 !important;
-    margin-bottom: 8px !important;
-    max-width: 420px !important;
-  }
-
-  .contact-cta-subtitle {
-    font-size: 1rem !important;
-    margin-bottom: 20px !important;
-  }
-
-  .contact-cta-btn {
-    padding: 14px 30px !important;
-    font-size: 0.95rem !important;
-    border-radius: 30px !important;
-    min-height: 48px !important;
-    box-shadow: 0 8px 24px rgba(255, 255, 255, 0.12) !important;
-  }
-
-  .contact-footer-grid {
-    grid-template-columns: 1fr !important;
-    gap: 24px !important;
-    padding-top: 32px !important;
-  }
-
-  .contact-footer-bottom-col {
-    display: flex !important;
-    flex-direction: row !important;
-    justify-content: space-between !important;
-    align-items: center !important;
-    gap: 16px !important;
-  }
-
-  .contact-back-to-top {
-    margin-left: 0 !important;
-    width: 44px !important;
-    height: 44px !important;
-    flex-shrink: 0 !important;
-  }
-
-  /* ------------------------------------------------------------------------
-     7. PROJECT MODAL (MOBILE CASE STUDY VIEW)
-     ------------------------------------------------------------------------ */
-  .modal-close-btn {
-    top: 16px !important;
-    right: 16px !important;
-    width: 44px !important;
-    height: 44px !important;
-    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.4) !important;
-  }
-
-  .modal-hero-image-wrap {
-    height: 45vh !important;
-    max-height: 360px !important;
-  }
-
-  .modal-content-wrap {
-    padding: 0 clamp(16px, 5vw, 24px) 60px !important;
-    margin-top: -30px !important;
-  }
-
-  .modal-title {
-    font-size: clamp(2rem, 7vw, 2.8rem) !important;
-    margin-bottom: 20px !important;
-  }
-
-  .modal-overview-grid {
-    grid-template-columns: 1fr !important;
-    gap: 24px !important;
-    margin-top: 24px !important;
-  }
-
-  .modal-action-btn {
-    width: 100% !important;
-    text-align: center !important;
-    padding: 14px 20px !important;
-    font-size: 0.95rem !important;
-  }
-
-  .modal-section-title {
-    font-size: clamp(1.5rem, 5.5vw, 2rem) !important;
-    margin-bottom: 14px !important;
-  }
-
-  .case-study-image.mobile {
-    max-width: 260px !important;
-    margin-bottom: 32px !important;
-  }
-
-  .case-study-image.desktop {
-    max-width: 100% !important;
-    margin-bottom: 32px !important;
-  }
-}
-
-/* ==========================================================================
-   EXTRA NARROW SCREENS (<= 360px - e.g. iPhone SE 1st gen, Galaxy Fold outer)
-   ========================================================================== */
-@media (max-width: 360px) {
-  .hero-section {
-    padding-top: 64px !important;
-  }
-
-  .hero-composition {
-    margin-bottom: 10px !important;
-  }
-
-  .hero-image {
-    width: 130px !important;
-    height: 180px !important;
-  }
-
-  .hero-title {
-    font-size: 2.15rem !important;
-  }
-
-  .hero-description {
-    font-size: 0.88rem !important;
-    margin-bottom: 12px !important;
-  }
-
-  .hero-buttons {
-    flex-direction: column !important;
-    align-items: stretch !important;
-    gap: 8px !important;
-  }
-
-  .hero-btn-primary,
-  .hero-btn-secondary {
-    width: 100% !important;
-    text-align: center !important;
-  }
-
-  .tools-grid {
-    gap: 8px !important;
-  }
-
-  .tools-grid .glass-panel {
-    padding: 10px 10px !important;
-    gap: 8px !important;
-  }
-
-  .tools-grid .glass-panel span {
-    font-size: 0.74rem !important;
-  }
-
-  .project-actions {
-    flex-direction: column !important;
-    gap: 8px !important;
-  }
-
-  .btn-project-primary,
-  .btn-project-secondary {
-    width: 100% !important;
-  }
-}
+ }

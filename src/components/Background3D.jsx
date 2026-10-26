@@ -1,6 +1,7 @@
 import { Canvas, useFrame } from '@react-three/fiber'
 import { Environment, Float, MeshDistortMaterial } from '@react-three/drei'
 import { Suspense, useRef, useEffect } from 'react'
+import * as THREE from 'three'
 import gsap from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 
@@ -13,6 +14,19 @@ function AbstractSculpture() {
   const materialRef = useRef()
   
   useEffect(() => {
+    const handleScroll = () => {
+      const scrollY = window.scrollY
+      if (groupRef.current) {
+        gsap.to(groupRef.current.rotation, {
+          y: scrollY * 0.005,
+          x: scrollY * 0.002,
+          duration: 1,
+          ease: 'power2.out'
+        })
+      }
+    }
+    window.addEventListener('scroll', handleScroll)
+
     const ctx = gsap.context(() => {
       
       // ABOUT SECTION: Move left, Wireframe, High distort
@@ -62,6 +76,7 @@ function AbstractSculpture() {
     })
 
     return () => {
+      window.removeEventListener('scroll', handleScroll)
       ctx.revert()
     }
   }, [])
@@ -72,14 +87,6 @@ function AbstractSculpture() {
       autoRotateRef.current.rotation.y += delta * 0.3;
       autoRotateRef.current.rotation.x += delta * 0.15;
       autoRotateRef.current.rotation.z += delta * 0.1;
-    }
-
-    if (groupRef.current) {
-      // Smooth scroll-driven rotation without creating tweens on every scroll event
-      const targetY = window.scrollY * 0.005;
-      const targetX = window.scrollY * 0.002;
-      groupRef.current.rotation.y += (targetY - groupRef.current.rotation.y) * 0.06;
-      groupRef.current.rotation.x += (targetX - groupRef.current.rotation.x) * 0.06;
     }
   })
 
@@ -109,7 +116,7 @@ function AbstractSculpture() {
 
 export default function Background3D() {
   return (
-    <div className="background-3d-wrapper" style={{ position: 'fixed', top: 0, left: 0, width: '100vw', height: '100vh', zIndex: 0, pointerEvents: 'none' }}>
+    <div style={{ position: 'fixed', top: 0, left: 0, width: '100vw', height: '100vh', zIndex: 0, pointerEvents: 'none' }}>
       <Canvas camera={{ position: [0, 0, 8], fov: 45 }}>
         <Suspense fallback={null}>
           <ambientLight intensity={0.5} />

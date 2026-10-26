@@ -21,7 +21,6 @@ export default function Navbar() {
 
   return (
     <motion.header
-      className="navbar-header"
       initial={{ y: -100, opacity: 0 }}
       animate={{ y: 0, opacity: 1 }}
       transition={{ duration: 1, ease: 'power3.out', delay: 0.5 }}
@@ -31,6 +30,7 @@ export default function Navbar() {
         left: 0,
         width: '100%',
         zIndex: 100,
+        padding: window.innerWidth <= 400 ? '18px 20px' : '24px 7vw',
         display: 'flex',
         justifyContent: 'space-between',
         alignItems: 'center'
@@ -39,11 +39,11 @@ export default function Navbar() {
       {/* Logo */}
       <a
         href="#home"
-        className="navbar-logo"
         onClick={(e) => handleScroll(e, '#home')}
         style={{
           color: 'var(--text-primary)',
           textDecoration: 'none',
+          fontSize: window.innerWidth <= 400 ? '1.2rem' : '1.5rem',
           fontFamily: "'Clash Display', sans-serif",
           fontWeight: 600,
           zIndex: 101
@@ -116,11 +116,10 @@ export default function Navbar() {
 
       {/* Right Side */}
       <div
-        className="navbar-actions"
         style={{
           display: 'flex',
           alignItems: 'center',
-          gap: '12px'
+          gap: '14px'
         }}
       >
         {/* Resume */}
@@ -129,6 +128,17 @@ export default function Navbar() {
           href="https://drive.google.com/file/d/1jExP9RF2EDszj4kvk0AQ7DP8c-PFoMRA/view?usp=sharing"
           target="_blank"
           rel="noopener noreferrer"
+          style={{
+            padding: window.innerWidth <= 400 ? '8px 14px' : '10px 20px',
+            borderRadius: '999px',
+            background: 'white',
+            color: 'black',
+            fontSize: window.innerWidth <= 400 ? '0.7rem' : '0.875rem',
+            fontWeight: 600,
+            textDecoration: 'none',
+            transition: 'all 0.3s ease',
+            whiteSpace: 'nowrap'
+          }}
         >
           Resume
         </a>
@@ -137,45 +147,69 @@ export default function Navbar() {
         <button
           className="mobile-menu-btn"
           onClick={() => setMenuOpen(!menuOpen)}
-          aria-label={menuOpen ? "Close menu" : "Open menu"}
+          style={{
+            background: 'transparent',
+            border: 'none',
+            padding: '10px',
+            color: 'white',
+            cursor: 'pointer'
+          }}
         >
-          {menuOpen ? <X size={24} /> : <Menu size={24} />}
+          {menuOpen ? <X size={26} /> : <Menu size={26} />}
         </button>
       </div>
 
       {/* Mobile Menu */}
       {menuOpen && (
         <div
-          className="glass-panel mobile-menu-dropdown"
+          className="glass-panel"
+          style={{
+            position: 'absolute',
+            top: '80px',
+            right: '20px',
+            width: '180px',
+            padding: '20px',
+            borderRadius: '20px',
+            display: 'flex',
+            flexDirection: 'column',
+            gap: '18px',
+            zIndex: 100,
+
+            background: 'rgba(20,20,20,0.75)',
+            backdropFilter: 'blur(20px)',
+            WebkitBackdropFilter: 'blur(20px)',
+            border: '1px solid rgba(255,255,255,0.08)',
+            boxShadow: '0 8px 32px rgba(0,0,0,0.3)'
+          }}
         >
           <a
-            className="mobile-menu-link"
             href="#projects"
             onClick={(e) => handleScroll(e, '#projects')}
+            style={{ color: 'white', textDecoration: 'none' }}
           >
             Work
           </a>
 
           <a
-            className="mobile-menu-link"
             href="#about"
             onClick={(e) => handleScroll(e, '#about')}
+            style={{ color: 'white', textDecoration: 'none' }}
           >
             About
           </a>
 
           <a
-            className="mobile-menu-link"
             href="#journey"
             onClick={(e) => handleScroll(e, '#journey')}
+            style={{ color: 'white', textDecoration: 'none' }}
           >
             Journey
           </a>
 
           <a
-            className="mobile-menu-link"
             href="#contact"
             onClick={(e) => handleScroll(e, '#contact')}
+            style={{ color: 'white', textDecoration: 'none' }}
           >
             Contact
           </a>
