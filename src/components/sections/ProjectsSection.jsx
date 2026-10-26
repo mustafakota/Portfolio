@@ -1,264 +1,440 @@
 import { useEffect, useRef, useState } from 'react'
 import gsap from 'gsap'
-import { AnimatePresence } from 'framer-motion'
+import { ScrollTrigger } from 'gsap/ScrollTrigger'
+import { AnimatePresence, motion } from 'framer-motion'
+import { Layers, ChevronDown, ChevronUp, ArrowDown, ExternalLink } from 'lucide-react'
 import ProjectModal from '../ProjectModal'
+import { featuredProjects, remainingProjects } from '../../data/projects'
 
-const projects = [
-  {
-    title: 'ALUXSYSTEM',
-    role: 'Independent Product — Designer & Builder',
-    image: '/Screenshot (157).png',
-    image1: '/Screenshot (159).png',
-    image2: '/Screenshot (160).png',
-    desc: 'An independent SaaS product I designed and built to turn a real business workflow into a structured digital system.',
-    tags: ['SaaS', 'UI/UX', 'Web Development', 'AI-assisted Development'],
-    intro: 'Built to take a software idea beyond just Figma design. It involved product thinking, UX/UI, web development, database integration, and AI-assisted development.',
-    goal: 'Demonstrate the ability to design a product and understand what it takes to actually build it. Progression: Idea → Understand the workflow → Product structure → UX/UI → Development → Testing → Iteration → Working product.',
-    conclusion: 'Built as a real software product to solve a real-world problem, demonstrating full lifecycle product creation capabilities.',
-    link: '#',
-    device: 'desktop'
-  },
-  {
-    title: 'Dayora',
-    role: 'Productivity Web App',
-    image: '/main ui.png',
-    image1: '/analtics.png',
-    image2: '/Screenshot 2026-01-13 235110.png',
-    desc: 'A behavior-driven productivity app in Figma, improving task completion by 24% through user-centered design.',
-    tags: ['Web App', 'Figma', 'User Research'],
-    intro: 'Dayora is a behavior-driven productivity web app designed to address procrastination by focusing on emotional and visual accountability rather than traditional neutral to-do lists. The product adapts its tone, feedback, and UI states based on user behavior, productivity levels, and time of day, creating a more honest and responsive productivity experience.',
-    goal: 'The goal of Dayora was to explore how behavioral UX and emotional design can influence task completion and self-discipline. Instead of reminding users what to do, the system aims to react to how users actually perform, encouraging realistic time estimation, reducing passive procrastination, and creating awareness through adaptive feedback and visual cues.',
-    conclusion: 'Dayora demonstrates how design, psychology, and systems thinking can work together to influence real user behavior. Through adaptive feedback mechanisms and visual accountability, the project achieved improved task completion and time awareness during usability testing. This case study reflects my approach to designing products that are not only usable, but behaviorally effective and emotionally intentional.',
-    link: 'https://drive.google.com/file/d/1gZdq8Dm-iA4WViVPK25bKnsp2vM4wLqi/view?usp=sharing',
-    device: 'desktop'
-  },
-  {
-    title: 'Unroll',
-    role: 'Subscription Management',
-    image: '/Unroll1 (3).png',
-    image1: '/Unroll1 (2).png',
-    image2: '/Unroll1 (1).png',
-    desc: 'Designed a subscription tracking app using user research (50+ users) and Figma based prototyping.',
-    tags: ['Mobile UI', 'Prototyping', 'Usability Testing'],
-    intro: 'With the rapid growth of digital services, users today manage multiple subscriptions across entertainment, productivity, fitness, and education platforms. While these services add convenience, they often lead to forgotten trials, unnoticed renewals, and recurring charges that users struggle to track.Unroll is a subscription-tracking app concept designed to help users gain clarity, reduce financial leaks, and feel more in control of their recurring expenses through a simple, mindful, and user-centric experience.',
-    goal: "The goal of Unroll was to create an intuitive and stress-free subscription management experience that helps users take control of their recurring expenses with clarity and confidence. The platform was designed to bring all subscriptions into one organized space, allowing users to easily track costs, billing cycles, and trial end dates without feeling overwhelmed. By providing timely renewal reminders and clear financial visibility, Unroll helps users avoid unexpected charges and make more informed decisions about the services they actually use and value. A key focus of the experience was maintaining user trust and privacy by eliminating the need to connect sensitive banking information, while reducing cognitive load through a clean, transparent, and user-friendly interface.",
-    conclusion: 'Through user interviews, surveys, personas, and empathy mapping, this project highlighted how small recurring charges can create significant financial and mental stress over time. Unroll addresses this problem by prioritizing clarity over complexity and control over automation.This case study strengthened my understanding of user-centered problem solving, research-driven design decisions, and building digital experiences that are both functional and emotionally reassuring.',
-    link: 'https://www.figma.com/proto/Gx43ZcFUbAbka9u5l60c6B/Unroll?node-id=1-12&p=f&viewport=555%2C4562%2C0.05&t=8MxToQUY9QR5OPIt-1&scaling=scale-down&content-scaling=fixed&starting-point-node-id=1%3A12&page-id=0%3A1',
-    device: 'desktop'
-  },
-  {
-    title: 'WanderEase',
-    role: ' Travel App Design',
-    image: '/Homw Screen (1).jpg',
-    image1: '/Bora Bora.png',
-    image2: '/started.png',
-    desc: 'WanderEase is a travel app concept that simplifies trip planning by keeping itineraries and bookings in one place.',
-    tags: ['Mobile App', 'Figma', 'Animation'],
-    intro: 'To design a clean, intuitive, and modern interface that helps users plan trips seamlessly from building itineraries to managing activities all within a single app.',
-    conclusion: 'Through this project, I explored how thoughtful UX can simplify complex tasks. WanderEase reflects my ability to balance usability and aesthetics, and it strengthened my skills in designing user-centered digital products.',
-    link: 'https://www.figma.com/proto/Esz9kpsSWsSqbytzpI0mmo/WanderEase?node-id=6-61&p=f&viewport=533%2C216%2C0.08&t=5N9HtGRcRvd0EIF7-1&scaling=scale-down&content-scaling=fixed&starting-point-node-id=3%3A14&page-id=0%3A1',
-    device: 'mobile'
-  },
-  {
-    title: 'Shoewave',
-    role: 'E-Commerce App',
-    image: '/Home.png',
-    image1: '/home layout.png',
-    image2: '/Product Detail 16.png',
-    desc: 'Shoewave is an e-commerce app concept for a modern shoe brand, designed to give users a stylish and seamless shopping experience.',
-    tags: ['E-commerce App', 'Figma', 'UI Design'],
-    intro: 'To design a clean, minimal, and user-friendly interface that makes browsing and buying shoes simple and engaging.',
-    conclusion: 'This project highlights my ability to combine modern UI trends with usability, creating an online shopping experience that feels both classy and intuitive.',
-    link: 'https://www.figma.com/proto/ITPbs0djHitXeLaJbBRe0L/Shoewave?node-id=36-6&page-id=0%3A1&starting-point-node-id=7%3A9&t=QWMsiVPFri6CaTgl-1',
-    device: 'mobile'
-  }
-]
+gsap.registerPlugin(ScrollTrigger)
 
 export default function ProjectsSection() {
   const sectionRef = useRef()
+  const pinWrapperRef = useRef()
   const trackRef = useRef()
   const progressRef = useRef()
   const [activeProject, setActiveProject] = useState(null)
+  const [isExpanded, setIsExpanded] = useState(false)
 
   useEffect(() => {
-    const mm = gsap.matchMedia();
+    const mm = gsap.matchMedia()
 
     // Desktop: Horizontal Scroll Hijack
-    mm.add("(min-width: 901px)", () => {
+    mm.add('(min-width: 901px)', () => {
       let ctx = gsap.context(() => {
-        // Calculate the total distance the track needs to slide horizontally
-        // It's the total width of all slides combined, minus the width of the viewport
-        let scrollWidth = trackRef.current.scrollWidth - window.innerWidth;
+        if (!trackRef.current || !pinWrapperRef.current) return
 
-        // 1. Pin the section and translate the track
-        const scrollTween = gsap.to(trackRef.current, {
+        let scrollWidth = trackRef.current.scrollWidth - window.innerWidth
+
+        // Pin the wrapper and translate the track
+        gsap.to(trackRef.current, {
           x: -scrollWidth,
-          ease: "none",
+          ease: 'none',
           scrollTrigger: {
-            trigger: sectionRef.current,
+            trigger: pinWrapperRef.current,
             pin: true,
             scrub: 1,
-            start: "top top",
+            start: 'top top',
             end: `+=${scrollWidth}`,
+            invalidateOnRefresh: true
           }
-        });
+        })
 
-        // 3. Animate the premium scrollbar thumb
+        // Animate the premium scrollbar thumb
         if (progressRef.current) {
-          gsap.fromTo(progressRef.current,
+          gsap.fromTo(
+            progressRef.current,
             { x: 0 },
             {
-              x: 225, // 300px track - 75px thumb = 225px translation
-              ease: "none",
+              x: 225,
+              ease: 'none',
               scrollTrigger: {
-                trigger: sectionRef.current,
+                trigger: pinWrapperRef.current,
                 scrub: 1,
-                start: "top top",
+                start: 'top top',
                 end: `+=${scrollWidth}`,
+                invalidateOnRefresh: true
               }
             }
-          );
+          )
         }
+      }, sectionRef)
 
-        // 2. Add Horizontal Parallax to images
-        const imgs = gsap.utils.toArray('.project-image');
-        imgs.forEach(img => {
-          gsap.to(img, {
-            xPercent: 20, // Slide image slightly right as container moves left
-            ease: "none",
-            scrollTrigger: {
-              trigger: img.closest('.project-slide'),
-              containerAnimation: scrollTween,
-              start: "left right",
-              end: "right left",
-              scrub: true
-            }
-          });
-        });
-      }, sectionRef);
-
-      return () => ctx.revert();
-    });
+      return () => ctx.revert()
+    })
 
     // Mobile: Standard Vertical Fallback
-    mm.add("(max-width: 900px)", () => {
+    mm.add('(max-width: 900px)', () => {
       let ctx = gsap.context(() => {
-        const slides = gsap.utils.toArray('.project-slide');
+        const slides = gsap.utils.toArray('.project-slide')
         slides.forEach((slide, i) => {
-          // Skip the intro text slide
-          if (i === 0) return;
+          if (i === 0) return
 
-          gsap.fromTo(slide,
-            { opacity: 0, y: 50 },
+          gsap.fromTo(
+            slide,
+            { opacity: 0, y: 40 },
             {
-              opacity: 1, y: 0, duration: 1, ease: 'power3.out',
+              opacity: 1,
+              y: 0,
+              duration: 0.8,
+              ease: 'power3.out',
               scrollTrigger: {
                 trigger: slide,
-                start: "top 85%"
+                start: 'top 85%'
               }
             }
-          );
-        });
-      }, sectionRef);
-      return () => ctx.revert();
-    });
+          )
+        })
+      }, sectionRef)
+      return () => ctx.revert()
+    })
 
-    return () => mm.revert();
+    return () => mm.revert()
   }, [])
 
+  const toggleAllProjects = () => {
+    if (!isExpanded) {
+      setIsExpanded(true)
+      setTimeout(() => {
+        ScrollTrigger.refresh()
+        const grid = document.getElementById('all-projects-grid')
+        if (grid) {
+          if (window.lenis) {
+            window.lenis.scrollTo(grid, { offset: -40, duration: 1.2 })
+          } else {
+            grid.scrollIntoView({ behavior: 'smooth' })
+          }
+        }
+      }, 100)
+    } else {
+      const trigger = document.getElementById('see-all-card') || pinWrapperRef.current || sectionRef.current
+      if (trigger) {
+        if (window.lenis) {
+          window.lenis.scrollTo(trigger, { offset: -80, duration: 0.8 })
+        } else {
+          trigger.scrollIntoView({ behavior: 'smooth' })
+        }
+      }
+      setTimeout(() => {
+        setIsExpanded(false)
+        setTimeout(() => ScrollTrigger.refresh(), 300)
+      }, 350)
+    }
+  }
+
+  const scrollToGrid = () => {
+    const grid = document.getElementById('all-projects-grid')
+    if (grid) {
+      if (window.lenis) {
+        window.lenis.scrollTo(grid, { offset: -40, duration: 1 })
+      } else {
+        grid.scrollIntoView({ behavior: 'smooth' })
+      }
+    }
+  }
+
   return (
-    <section id="projects" ref={sectionRef} style={{ overflow: 'hidden', backgroundColor: 'transparent', position: 'relative' }}>
+    <section id="projects" ref={sectionRef} style={{ overflow: 'visible', backgroundColor: 'transparent', position: 'relative' }}>
 
-      <div ref={trackRef} className="projects-track">
+      {/* Horizontal Scroll Track Wrapper (Pinned on Desktop) */}
+      <div ref={pinWrapperRef} className="projects-horizontal-wrapper">
+        <div ref={trackRef} className="projects-track">
 
-        {/* Intro Slide */}
-        <div className="project-slide" style={{ position: 'relative' }}>
+          {/* Intro Slide */}
+          <div className="project-slide">
+            <div className="hollow-bg-text">
+              <h2>WORK</h2>
+            </div>
 
-          {/* Massive Hollow Background Text */}
-          <div style={{ position: 'absolute', top: '50%', left: '50%', transform: 'translate(-50%, -50%)', width: '100vw', textAlign: 'center', pointerEvents: 'none', zIndex: 0 }}>
-            <h2 style={{ fontSize: 'clamp(8rem, 30vw, 30rem)', fontFamily: "'Clash Display', sans-serif", fontWeight: 700, margin: 0, color: 'transparent', WebkitTextStroke: '3px rgba(255,255,255,0.12)', whiteSpace: 'nowrap' }}>
-              WORK
-            </h2>
-          </div>
+            <div className="intro-slide-content">
+              <div className="intro-kicker">
+                <span className="project-kicker-dot" />
+                <span>Curated Works</span>
+              </div>
+              <h2 className="intro-title">Curated Exhibitions.</h2>
+              <p className="intro-desc">
+                Selected works focusing on premium interfaces, robust design systems, and digital storytelling.
+              </p>
 
-          <div style={{ textAlign: 'center', padding: '0 5vw', maxWidth: '800px', position: 'relative', zIndex: 1 }}>
-            <h2 className="text-section-title">Curated Exhibitions.</h2>
-            <p className="text-body" style={{ margin: '0 auto' }}>Selected works focusing on premium interfaces, robust design systems, and digital storytelling.</p>
-
-            {/* Scroll Indicator */}
-            <div style={{ marginTop: '80px', display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '16px', opacity: 0.6 }}>
-              <span style={{ textTransform: 'uppercase', letterSpacing: '2px', fontSize: '0.875rem' }}>Scroll to Explore</span>
-              <div style={{ width: '1px', height: '60px', backgroundColor: 'rgba(255,255,255,0.2)', position: 'relative', overflow: 'hidden' }}>
-                <div style={{ width: '100%', height: '50%', backgroundColor: 'var(--text-primary)', animation: 'scroll-down 2s infinite' }} />
+              {/* Scroll Indicator */}
+              <div className="intro-scroll-indicator">
+                <span className="intro-scroll-text">Scroll to Explore</span>
+                <div className="intro-scroll-line">
+                  <div className="intro-scroll-line-bar" />
+                </div>
               </div>
             </div>
           </div>
-        </div>
 
-        {/* Project Slides */}
-        {projects.map((proj, i) => (
-          <div key={proj.title} className="project-slide">
-            <div className="project-grid">
+          {/* 3 Featured Projects in Exact Order: Diamond Fibre, ALUXSYSTEM, Dayora */}
+          {featuredProjects.map((proj, i) => {
+            const isDayora = proj.title === 'Dayora'
 
-              <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', order: i % 2 === 0 ? 1 : 2, width: '100%' }}>
-                <div style={{ width: proj.device === 'mobile' ? 'auto' : '100%', height: proj.device === 'mobile' ? '70vh' : '260px', minHeight: '400px', aspectRatio: proj.device === 'mobile' ? '9/16' : 'auto', overflow: 'hidden', borderRadius: '24px', position: 'relative' }}>
-                  <img
-                    className="project-image"
-                    src={proj.image}
-                    alt={proj.title}
-                    style={{
-                      width: proj.device === 'mobile' ? '120%' : '100%',
-                      height: '100%',
-                      objectFit: proj.device === 'mobile' ? 'cover' : 'contain',
-                      position: 'absolute',
-                      left: proj.device === 'mobile' ? '-10%' : '0',
-                      transition: 'transform 0.5s ease',
-                      filter: proj.device === 'desktop'
-                        ? 'drop-shadow(0 40px 80px rgba(0,0,0,0.45))'
-                        : 'none'
-                    }}
-                    onMouseEnter={(e) =>
-                      e.target.style.transform = 'scale(1.05)'
-                    }
-                    onMouseLeave={(e) =>
-                      e.target.style.transform = 'scale(1)'
-                    }
-                  />
-                  <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to top, rgba(13,13,14,0.4), transparent)', pointerEvents: 'none' }}></div>
+            return (
+              <div key={proj.title} className="project-slide">
+                <div className="project-grid">
+
+                  <div className="project-media-col" style={{ order: i % 2 === 0 ? 1 : 2 }}>
+                    <div className="project-mockup-container">
+                      {/* Primary Browser Mockup */}
+                      <div className="browser-mockup primary">
+                        <div className="browser-chrome">
+                          <div className="browser-controls">
+                            <span className="window-dot dot-red" />
+                            <span className="window-dot dot-yellow" />
+                            <span className="window-dot dot-green" />
+                          </div>
+                          <div className="browser-address-bar">
+                            <span className="address-lock">🔒</span>
+                            <span className="address-text">{proj.url}</span>
+                          </div>
+                        </div>
+                        <div className="browser-viewport">
+                          <img
+                            className="project-image browser-screen-img"
+                            src={proj.image}
+                            alt={proj.title}
+                          />
+                        </div>
+                      </div>
+
+                      {/* Complementary Floating Screen Mockup */}
+                      {proj.image1 && (
+                        <div className="browser-mockup secondary">
+                          <div className="browser-chrome mini">
+                            <div className="browser-controls mini">
+                              <span className="window-dot dot-red mini" />
+                              <span className="window-dot dot-yellow mini" />
+                              <span className="window-dot dot-green mini" />
+                            </div>
+                            <div className="browser-address-bar mini">
+                              <span className="address-text">{proj.urlSecondary}</span>
+                            </div>
+                          </div>
+                          <div className="browser-viewport mini">
+                            <img
+                              className="browser-secondary-img"
+                              src={proj.image1}
+                              alt={`${proj.title} complementary view`}
+                            />
+                          </div>
+                        </div>
+                      )}
+                    </div>
+                  </div>
+
+                  <div className="project-content-col" style={{ order: i % 2 === 0 ? 2 : 1 }}>
+                    <div className="project-kicker">
+                      <span className="project-kicker-dot" />
+                      <span>{proj.role}</span>
+                    </div>
+
+                    <h3 className="project-title">
+                      {proj.title}
+                    </h3>
+
+                    <p className="project-desc">
+                      {proj.desc}
+                    </p>
+
+                    <div className="project-tags">
+                      {proj.tags.map(tag => (
+                        <span key={tag} className="project-tag-pill">
+                          {tag}
+                        </span>
+                      ))}
+                    </div>
+
+                    <div className="project-actions">
+                      <button
+                        className="btn-project-primary"
+                        onClick={() => setActiveProject(proj)}
+                      >
+                        View Case Study
+                      </button>
+
+                      {isDayora && (
+                        <button
+                          className="btn-project-secondary"
+                          onClick={toggleAllProjects}
+                        >
+                          <span>{isExpanded ? 'Collapse Archive' : 'See all projects'}</span>
+                          {isExpanded ? <ChevronUp size={16} /> : <ChevronDown size={16} />}
+                        </button>
+                      )}
+                    </div>
+                  </div>
+
                 </div>
               </div>
+            )
+          })}
 
-              <div style={{ order: i % 2 === 0 ? 2 : 1 }}>
-                <p style={{ textTransform: 'uppercase', letterSpacing: '2px', color: 'var(--text-secondary)', marginBottom: '16px', fontSize: '0.875rem' }}>{proj.role}</p>
-                <h3 style={{ fontSize: 'clamp(3rem, 5vw, 4.5rem)', fontFamily: "'Clash Display', sans-serif", marginBottom: '24px', lineHeight: 1.1 }}>{proj.title}</h3>
-                <p className="text-body" style={{ marginBottom: '40px' }}>{proj.desc}</p>
+          {/* Slide 4: Dedicated See All Projects slide (After Dayora) */}
+          <div className="project-slide see-all-slide">
+            <div className="hollow-bg-text">
+              <h2>ARCHIVE</h2>
+            </div>
 
-                <div style={{ display: 'flex', gap: '12px', marginBottom: '48px', flexWrap: 'wrap' }}>
-                  {proj.tags.map(tag => (
-                    <span key={tag} className="glass-panel" style={{ padding: '8px 16px', fontSize: '0.875rem' }}>{tag}</span>
-                  ))}
+            <div id="see-all-card" className="see-all-card glass-panel">
+              <div className="see-all-badge">
+                <Layers size={14} />
+                <span>Curated Archive • 3 More Works</span>
+              </div>
+
+              <h3 className="see-all-title">More Projects.</h3>
+
+              <p className="see-all-desc">
+                Explore additional mobile prototypes, subscription management systems, and interactive digital concepts.
+              </p>
+
+              <div className="see-all-btn-wrapper">
+                <button
+                  id="see-all-projects-btn"
+                  className="primary-action-btn"
+                  onClick={toggleAllProjects}
+                >
+                  <span>{isExpanded ? 'Collapse Archive' : 'See all projects (3)'}</span>
+                  {isExpanded ? <ChevronUp size={18} /> : <ChevronDown size={18} />}
+                </button>
+
+                {isExpanded && (
+                  <button
+                    className="secondary-scroll-btn"
+                    onClick={scrollToGrid}
+                  >
+                    <span>Jump to Grid Below</span>
+                    <ArrowDown size={14} />
+                  </button>
+                )}
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+        {/* Premium Scrollbar Indicator (Desktop) */}
+        <div className="horizontal-progress-bar">
+          <div ref={progressRef} className="horizontal-progress-thumb" />
+        </div>
+      </div>
+
+      {/* Vertically scrollable grid revealed below */}
+      <AnimatePresence>
+        {isExpanded && (
+          <motion.div
+            id="all-projects-grid"
+            className="all-projects-wrapper"
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: 20 }}
+            transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
+          >
+            <div className="section-container" style={{ paddingTop: '60px', paddingBottom: '100px' }}>
+              {/* Header */}
+              <div className="archive-header">
+                <div>
+                  <div className="archive-kicker">
+                    <span className="dot" />
+                    <span>PROJECT ARCHIVE</span>
+                  </div>
+                  <h2 className="archive-header-title">
+                    All Archive Projects.
+                  </h2>
+                  <p className="archive-header-desc">
+                    Additional selected works across mobile UI, systems thinking, and interactive experiences.
+                  </p>
                 </div>
 
                 <button
-                  onClick={() => setActiveProject(proj)}
-                  style={{ padding: '16px 32px', border: '1px solid var(--text-primary)', color: 'var(--text-primary)', borderRadius: '30px', fontWeight: 500, transition: 'all 0.3s ease', fontSize: '1rem', cursor: 'pointer', background: 'transparent' }}
-                  onMouseEnter={(e) => { e.currentTarget.style.background = 'var(--text-primary)'; e.currentTarget.style.color = 'var(--bg-color)' }}
-                  onMouseLeave={(e) => { e.currentTarget.style.background = 'transparent'; e.currentTarget.style.color = 'var(--text-primary)' }}
+                  onClick={toggleAllProjects}
+                  className="collapse-grid-btn"
+                  title="Collapse project archive"
                 >
-                  View Case Study
+                  <span>Collapse Archive</span>
+                  <ChevronUp size={16} />
                 </button>
               </div>
 
+              {/* Grid of Cards */}
+              <div className="archive-grid">
+                {remainingProjects.map((proj) => (
+                  <div key={proj.title} className="archive-card glass-panel">
+                    {/* Thumbnail */}
+                    <div
+                      className="archive-thumb-wrap"
+                      onClick={() => setActiveProject(proj)}
+                    >
+                      <img
+                        className="archive-project-image"
+                        src={proj.image}
+                        alt={proj.title}
+                        style={{
+                          width: '100%',
+                          height: '100%',
+                          objectFit: 'contain',
+                          display: 'block'
+                        }}
+                      />
+                      <div className="archive-thumb-badge">
+                        {proj.device === 'mobile' ? 'Mobile App' : 'Web / SaaS'}
+                      </div>
+                      <div className="archive-thumb-overlay">
+                        <span>View Case Study →</span>
+                      </div>
+                    </div>
+
+                    {/* Info */}
+                    <div className="archive-card-content">
+                      <span className="archive-role">{proj.role}</span>
+                      <h3 className="archive-title">{proj.title}</h3>
+                      <p className="archive-desc">{proj.desc}</p>
+
+                      <div className="archive-tags">
+                        {proj.tags.map(tag => (
+                          <span key={tag} className="archive-tag">{tag}</span>
+                        ))}
+                      </div>
+
+                      <div className="archive-card-actions">
+                        <button
+                          onClick={() => setActiveProject(proj)}
+                          className="archive-case-study-btn"
+                        >
+                          View Case Study
+                        </button>
+
+                        {proj.link && proj.link !== '#' && (
+                          <a
+                            href={proj.link}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="archive-link-btn"
+                            title="Open external project link"
+                          >
+                            <ExternalLink size={18} />
+                          </a>
+                        )}
+                      </div>
+                    </div>
+                  </div>
+                ))}
+              </div>
+
+              {/* Bottom Collapse Bar */}
+              <div className="archive-bottom-bar">
+                <button
+                  onClick={toggleAllProjects}
+                  className="collapse-bottom-btn"
+                >
+                  <span>Collapse Project Archive</span>
+                  <ChevronUp size={20} />
+                </button>
+              </div>
             </div>
-          </div>
-        ))}
-
-      </div>
-
-      {/* Premium Scrollbar Indicator */}
-      <div className="horizontal-progress" style={{ position: 'absolute', bottom: '60px', left: '50%', transform: 'translateX(-50%)', width: '300px', height: '2px', backgroundColor: 'rgba(255,255,255,0.1)', zIndex: 50, borderRadius: '4px', overflow: 'hidden' }}>
-        <div ref={progressRef} style={{ width: '25%', height: '100%', backgroundColor: 'var(--text-primary)', borderRadius: '4px', willChange: 'transform' }} />
-      </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
 
       <AnimatePresence>
         {activeProject && (

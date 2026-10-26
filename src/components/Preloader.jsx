@@ -1,14 +1,15 @@
-import { useEffect, useState, useRef } from 'react'
+import { useEffect, useRef } from 'react'
 import gsap from 'gsap'
 
 export default function Preloader() {
-  const [progress, setProgress] = useState(0)
   const containerRef = useRef()
   const topPanelRef = useRef()
   const bottomPanelRef = useRef()
   const textRef = useRef()
+  const counterRef = useRef()
 
   useEffect(() => {
+    const originalOverflow = document.body.style.overflow
     const tl = gsap.timeline()
     
     // Disable scroll while loading
@@ -21,7 +22,11 @@ export default function Preloader() {
       val: 100,
       duration: 2.5,
       ease: 'power3.inOut',
-      onUpdate: () => setProgress(Math.round(obj.val))
+      onUpdate: () => {
+        if (counterRef.current) {
+          counterRef.current.textContent = `${Math.round(obj.val)}%`
+        }
+      }
     })
 
     // 2. Fade out the number elegantly
@@ -38,13 +43,17 @@ export default function Preloader() {
       duration: 1.5,
       ease: 'expo.inOut',
       onComplete: () => {
-        document.body.style.overflow = ''
+        document.body.style.overflow = originalOverflow
         if (containerRef.current) {
           containerRef.current.style.display = 'none'
         }
       }
     }, "-=0.1")
 
+    return () => {
+      document.body.style.overflow = originalOverflow
+      tl.kill()
+    }
   }, [])
 
   return (
@@ -58,8 +67,8 @@ export default function Preloader() {
 
       {/* Floating Counter */}
       <div ref={textRef} style={{ position: 'absolute', inset: 0, display: 'flex', alignItems: 'center', justifyContent: 'center', pointerEvents: 'none' }}>
-        <div style={{ fontSize: 'clamp(5rem, 15vw, 15rem)', fontFamily: "'Clash Display', sans-serif", fontWeight: 700, lineHeight: 0.8, color: 'var(--text-primary)' }}>
-          {progress}%
+        <div ref={counterRef} style={{ fontSize: 'clamp(5rem, 15vw, 15rem)', fontFamily: "'Clash Display', sans-serif", fontWeight: 700, lineHeight: 0.8, color: 'var(--text-primary)' }}>
+          0%
         </div>
       </div>
       

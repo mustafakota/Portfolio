@@ -36,6 +36,7 @@ export default function ProjectModal({ project, onClose }) {
     >
       {/* Close Button */}
       <button
+        className="modal-close-btn"
         onClick={onClose}
         style={{
           position: 'fixed',
@@ -59,30 +60,31 @@ export default function ProjectModal({ project, onClose }) {
       </button>
 
       {/* Hero Image */}
-      <div style={{ width: '100%', height: '75vh', position: 'relative', flexShrink: 0 }}>
+      <div className="modal-hero-image-wrap" style={{ width: '100%', height: '75vh', position: 'relative', flexShrink: 0 }}>
         <img
           src={project.image}
-          alt={project.title}
+          alt={project.imageAlt || project.title}
           style={{ width: '100%', height: '100%', objectFit: 'contain', backgroundColor: '#111' }}
         />
         <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to top, var(--bg-color), transparent)' }} />
       </div>
 
       {/* Content Details */}
-      <div style={{ padding: '0 5vw 80px', marginTop: '-60px', position: 'relative', zIndex: 2 }}>
+      <div className="modal-content-wrap" style={{ padding: '0 5vw 80px', marginTop: '-60px', position: 'relative', zIndex: 2 }}>
         <p style={{ textTransform: 'uppercase', letterSpacing: '4px', color: 'var(--text-secondary)', marginBottom: '16px', fontSize: '0.875rem' }}>
           {project.role}
         </p>
-        <h2 style={{ fontSize: 'clamp(3rem, 6vw, 6rem)', fontFamily: "'Clash Display', sans-serif", marginBottom: '32px', lineHeight: 1 }}>
+        <h2 className="modal-title" style={{ fontSize: 'clamp(3rem, 6vw, 6rem)', fontFamily: "'Clash Display', sans-serif", marginBottom: '32px', lineHeight: 1 }}>
           {project.title}
         </h2>
 
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '40px', marginTop: '40px' }}>
+        <div className="modal-overview-grid" style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '40px', marginTop: '40px' }}>
           <div>
             <h3 style={{ fontSize: '1.5rem', fontFamily: "'Clash Display', sans-serif", marginBottom: '16px' }}>Overview</h3>
             <p className="text-body" style={{ fontSize: '1.125rem', marginBottom: '32px' }}>{project.desc}</p>
 
             <a
+              className="modal-action-btn"
               href={project.link}
               target="_blank"
               rel="noopener noreferrer"
@@ -121,7 +123,7 @@ export default function ProjectModal({ project, onClose }) {
 
           {/* Introduction */}
           <div style={{ marginBottom: '60px' }}>
-            <h3 style={{ fontSize: '2.5rem', fontFamily: "'Clash Display', sans-serif", marginBottom: '24px' }}>Introduction</h3>
+            <h3 className="modal-section-title" style={{ fontSize: '2.5rem', fontFamily: "'Clash Display', sans-serif", marginBottom: '24px' }}>Introduction</h3>
             <p className="text-body" style={{ fontSize: '1.125rem', maxWidth: '800px' }}>
               {project.intro}
             </p>
@@ -141,7 +143,7 @@ export default function ProjectModal({ project, onClose }) {
           >
             <img
               src={project.image1}
-              alt={project.title}
+              alt={project.image1Alt || project.title}
               style={{
                 width: '100%',
                 height: 'auto',
@@ -153,7 +155,7 @@ export default function ProjectModal({ project, onClose }) {
 
           {/* Goal */}
           <div style={{ marginBottom: '60px' }}>
-            <h3 style={{ fontSize: '2.5rem', fontFamily: "'Clash Display', sans-serif", marginBottom: '24px' }}>The Goal</h3>
+            <h3 className="modal-section-title" style={{ fontSize: '2.5rem', fontFamily: "'Clash Display', sans-serif", marginBottom: '24px' }}>The Goal</h3>
             <p className="text-body" style={{ fontSize: '1.125rem', maxWidth: '800px' }}>
               {project.goal}
             </p>
@@ -172,7 +174,7 @@ export default function ProjectModal({ project, onClose }) {
           >
             <img
               src={project.image2}
-              alt={project.title}
+              alt={project.image2Alt || project.title}
               style={{
                 width: '100%',
                 height: 'auto',
@@ -184,7 +186,7 @@ export default function ProjectModal({ project, onClose }) {
 
           {/* Conclusion */}
           <div style={{ marginBottom: '60px' }}>
-            <h3 style={{ fontSize: '2.5rem', fontFamily: "'Clash Display', sans-serif", marginBottom: '24px' }}>Conclusion</h3>
+            <h3 className="modal-section-title" style={{ fontSize: '2.5rem', fontFamily: "'Clash Display', sans-serif", marginBottom: '24px' }}>Conclusion</h3>
             <p className="text-body" style={{ fontSize: '1.125rem', maxWidth: '800px' }}>
               {project.conclusion}
             </p>

@@ -31,23 +31,23 @@ export default function JourneySection() {
   }, [])
 
   return (
-    <section id="journey" ref={containerRef} className="section-container" style={{ paddingBottom: '160px', paddingTop: '160px' }}>
+    <section id="journey" ref={containerRef} className="section-container journey-section" style={{ paddingBottom: '160px', paddingTop: '160px' }}>
 
       <div style={{ maxWidth: '1000px', margin: '0 auto' }}>
-        <p style={{ textTransform: 'uppercase', letterSpacing: '4px', color: 'var(--text-secondary)', marginBottom: '40px', fontSize: '0.875rem' }}>
+        <p className="journey-kicker" style={{ textTransform: 'uppercase', letterSpacing: '4px', color: 'var(--text-secondary)', marginBottom: '40px', fontSize: '0.875rem' }}>
           About
         </p>
 
         {/* Text Fill Effect */}
-        <h2 ref={textRef} style={{ fontSize: 'clamp(2rem, 5vw, 4rem)', fontFamily: "'Clash Display', sans-serif", lineHeight: 1.2, fontWeight: 500, display: 'flex', flexWrap: 'wrap', columnGap: '0.3em', rowGap: '0.1em' }}>
+        <h2 ref={textRef} className="journey-lead-heading" style={{ fontSize: 'clamp(2rem, 5vw, 4rem)', fontFamily: "'Clash Display', sans-serif", lineHeight: 1.2, fontWeight: 500, display: 'flex', flexWrap: 'wrap', columnGap: '0.3em', rowGap: '0.1em' }}>
           {aboutText.split(' ').map((word, i) => (
             <span key={i} className="about-word" style={{ willChange: 'opacity' }}>{word}</span>
           ))}
         </h2>
 
         {/* Minimalist Journey/Experience */}
-        <div style={{ marginTop: '160px', borderTop: '1px solid rgba(255,255,255,0.1)', paddingTop: '60px' }}>
-          <p style={{ textTransform: 'uppercase', letterSpacing: '4px', color: 'var(--text-secondary)', marginBottom: '45px', fontSize: '0.875rem' }}>
+        <div className="journey-experience-wrap" style={{ marginTop: '160px', borderTop: '1px solid rgba(255,255,255,0.1)', paddingTop: '60px' }}>
+          <p className="journey-experience-kicker" style={{ textTransform: 'uppercase', letterSpacing: '4px', color: 'var(--text-secondary)', marginBottom: '45px', fontSize: '0.875rem' }}>
             Experience
           </p>
 
@@ -68,18 +68,18 @@ export default function JourneySection() {
               { role: 'UI/UX Designer', place: 'Boardway India', date: 'Jan 2025 - Aug 2025' },
               { role: 'Personal Projects', place: 'Freelance', date: 'Sep 2025 - Present' }
             ].map((item, i) => (
-              <div key={i} style={{ display: 'flex', flexDirection: 'column', borderBottom: '1px solid rgba(255,255,255,0.05)', padding: '32px 0', gap: '24px' }}>
+              <div key={i} className="journey-item" style={{ display: 'flex', flexDirection: 'column', borderBottom: '1px solid rgba(255,255,255,0.05)', padding: '32px 0', gap: '24px' }}>
                 <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', flexWrap: 'wrap', gap: '16px' }}>
                   <div>
                     <h3 style={{ fontSize: 'clamp(1.25rem, 3vw, 1.5rem)', fontWeight: 500, marginBottom: '8px' }}>{item.role}</h3>
                     <p style={{ color: 'var(--text-secondary)', fontSize: '1rem' }}>{item.place}</p>
                   </div>
-                  <div style={{ padding: '8px 16px', border: '1px solid rgba(255,255,255,0.1)', borderRadius: '30px', fontSize: '0.875rem', color: 'var(--text-secondary)' }}>
+                  <div className="journey-date-pill" style={{ padding: '8px 16px', border: '1px solid rgba(255,255,255,0.1)', borderRadius: '30px', fontSize: '0.875rem', color: 'var(--text-secondary)' }}>
                     {item.date}
                   </div>
                 </div>
                 {item.tasks && (
-                  <ul style={{ listStyleType: 'disc', paddingLeft: '20px', color: 'var(--text-secondary)', display: 'flex', flexDirection: 'column', gap: '12px', margin: 0 }}>
+                  <ul className="journey-task-list" style={{ listStyleType: 'disc', paddingLeft: '20px', color: 'var(--text-secondary)', display: 'flex', flexDirection: 'column', gap: '12px', margin: 0 }}>
                     {item.tasks.map((task, idx) => (
                       <li key={idx} style={{ fontSize: '1rem', lineHeight: '1.5' }}>{task}</li>
                     ))}
