@@ -1,0 +1,466 @@
+/* ==========================================================================
+   DEFAULT DESKTOP SPACING & ALIGNMENT
+   ========================================================================== */
+
+.mobile-menu-btn {
+  display: none;
+}
+
+#journey {
+  padding-top: 140px;
+  padding-bottom: 140px;
+}
+
+.experience-wrap {
+  margin-top: 140px;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  padding-top: 60px;
+}
+
+#contact {
+  min-height: 100vh;
+  padding-top: 100px;
+  padding-bottom: 40px;
+}
+
+.contact-cta-wrap {
+  margin-top: 100px;
+  margin-bottom: 80px;
+  padding: 0 20px;
+}
+
+.footer-grid {
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 60px;
+  padding-top: 60px;
+}
+
+.back-to-top-btn {
+  margin-left: 80px;
+}
+
+.about-section {
+  min-height: 100vh;
+}
+
+.modal-close-btn {
+  top: 80px;
+  right: 40px;
+  width: 60px;
+  height: 60px;
+}
+
+.modal-hero-wrap {
+  height: 75vh;
+}
+
+.modal-content-wrap {
+  padding: 0 5vw 80px;
+  margin-top: -60px;
+}
+
+.modal-deep-dive {
+  margin-top: 80px;
+  padding-top: 80px;
+}
+
+/* ==========================================================================
+   TABLET & MOBILE RESPONSIVE OPTIMIZATIONS (<= 900px)
+   ========================================================================== */
+@media (max-width: 900px) {
+
+  /* Header & Navigation */
+  header.nav-header {
+    padding: 14px 5vw !important;
+  }
+
+  .desktop-nav {
+    display: none !important;
+  }
+
+  .mobile-menu-btn {
+    display: flex !important;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .resume-btn {
+    padding: 8px 16px !important;
+    font-size: 0.8rem !important;
+  }
+
+  /* Section Spacing & Base Typography */
+  .section-container {
+    padding: 72px 5vw !important;
+  }
+
+  .text-section-title {
+    font-size: clamp(1.85rem, 5.5vw, 2.5rem);
+    line-height: 1.2;
+    margin-bottom: 1.25rem;
+  }
+
+  .text-body {
+    font-size: 1rem;
+    line-height: 1.65;
+  }
+
+  /* Hero Section */
+  .hero-section {
+    min-height: auto !important;
+    padding-top: 110px !important;
+    padding-bottom: 48px !important;
+    padding-left: 5vw !important;
+    padding-right: 5vw !important;
+  }
+
+  .hero-composition {
+    margin-bottom: 24px !important;
+  }
+
+  .hero-subtitle {
+    font-size: clamp(0.78rem, 2.8vw, 0.95rem) !important;
+    letter-spacing: 3px !important;
+    margin-bottom: 14px !important;
+  }
+
+  .hero-title {
+    font-size: clamp(3rem, 13vw, 4.8rem) !important;
+    line-height: 0.9 !important;
+    top: 48% !important;
+  }
+
+  .hero-image {
+    width: clamp(160px, 44vw, 210px) !important;
+    height: clamp(230px, 60vw, 300px) !important;
+    transform: translateY(16px) !important;
+    border-radius: 140px 140px 20px 20px !important;
+  }
+
+  .hero-content {
+    padding: 0 10px !important;
+    max-width: 100% !important;
+  }
+
+  .hero-headline {
+    font-size: clamp(1.45rem, 5.2vw, 2rem) !important;
+    line-height: 1.25 !important;
+    margin-bottom: 12px !important;
+  }
+
+  .hero-description {
+    font-size: 0.92rem !important;
+    line-height: 1.6 !important;
+    margin-bottom: 24px !important;
+    max-width: 100% !important;
+  }
+
+  .hero-buttons {
+    gap: 12px !important;
+  }
+
+  .hero-buttons button {
+    padding: 12px 22px !important;
+    font-size: 0.88rem !important;
+  }
+
+  /* About Section */
+  .about-section {
+    min-height: auto !important;
+    padding-top: 56px !important;
+    padding-bottom: 56px !important;
+  }
+
+  .about-grid {
+    grid-template-columns: 1fr !important;
+    gap: 36px !important;
+  }
+
+  .about-story {
+    text-align: left !important;
+  }
+
+  .about-story .text-section-title {
+    font-size: clamp(2rem, 7vw, 2.75rem) !important;
+    margin-bottom: 16px !important;
+  }
+
+  .about-story .text-body {
+    font-size: 0.92rem !important;
+    line-height: 1.65 !important;
+    margin-bottom: 18px !important;
+  }
+
+  .about-quote-box {
+    padding-left: 16px !important;
+  }
+
+  .about-quote {
+    font-size: clamp(1.05rem, 3.8vw, 1.28rem) !important;
+    line-height: 1.45 !important;
+  }
+
+  .about-tools-title {
+    font-size: 1.3rem !important;
+    margin-bottom: 16px !important;
+  }
+
+  .tools-grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 10px !important;
+  }
+
+  .tools-grid .glass-panel {
+    padding: 12px 14px !important;
+    gap: 10px !important;
+    border-radius: 14px !important;
+  }
+
+  .tools-grid .glass-panel span {
+    font-size: 0.82rem !important;
+  }
+
+  /* Journey / Experience Section */
+  #journey.journey-section {
+    padding-top: 56px !important;
+    padding-bottom: 56px !important;
+  }
+
+  .journey-tag {
+    margin-bottom: 24px !important;
+  }
+
+  .experience-wrap {
+    margin-top: 40px !important;
+    padding-top: 28px !important;
+  }
+
+  .experience-item {
+    padding: 20px 0 !important;
+    gap: 16px !important;
+  }
+
+  .experience-item h3 {
+    font-size: 1.18rem !important;
+    margin-bottom: 4px !important;
+  }
+
+  .experience-item p {
+    font-size: 0.88rem !important;
+  }
+
+  .experience-date-pill {
+    padding: 6px 14px !important;
+    font-size: 0.78rem !important;
+  }
+
+  .experience-item ul {
+    gap: 8px !important;
+    padding-left: 18px !important;
+  }
+
+  .experience-item li {
+    font-size: 0.88rem !important;
+    line-height: 1.5 !important;
+  }
+
+  /* Projects Section */
+  .projects-track {
+    flex-direction: column !important;
+    height: auto !important;
+    width: 100% !important;
+  }
+
+  .intro-slide {
+    padding: 40px 0 !important;
+  }
+
+  .projects-scroll-indicator {
+    display: none !important;
+  }
+
+  .project-slide {
+    width: 100% !important;
+    height: auto !important;
+    padding: 48px 0 !important;
+  }
+
+  .project-grid {
+    grid-template-columns: 1fr !important;
+    gap: 28px !important;
+  }
+
+  .archive-slide {
+    width: 100% !important;
+    min-width: 0 !important;
+    padding: 48px 0 !important;
+  }
+
+  .archive-header {
+    gap: 12px !important;
+    padding-bottom: 18px !important;
+  }
+
+  .archive-cards-grid {
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)) !important;
+    gap: 16px !important;
+  }
+
+  .archive-cards-grid .glass-panel {
+    padding: 20px !important;
+    min-height: 220px !important;
+    border-radius: 16px !important;
+  }
+
+  .archive-cards-grid h4 {
+    font-size: 1.35rem !important;
+    margin-bottom: 8px !important;
+  }
+
+  .archive-cards-grid p {
+    font-size: 0.82rem !important;
+    margin-bottom: 16px !important;
+    line-height: 1.5 !important;
+  }
+
+  /* Contact Section & Footer */
+  #contact.contact-section {
+    min-height: auto !important;
+    padding-top: 56px !important;
+    padding-bottom: 32px !important;
+  }
+
+  .contact-marquee-text {
+    font-size: clamp(2.8rem, 11vw, 4.5rem) !important;
+    padding-right: 28px !important;
+  }
+
+  .contact-cta-wrap {
+    margin-top: 36px !important;
+    margin-bottom: 36px !important;
+    padding: 0 10px !important;
+  }
+
+  .contact-prompt {
+    font-size: clamp(1.2rem, 4.5vw, 1.5rem) !important;
+    line-height: 1.3 !important;
+  }
+
+  .contact-subprompt {
+    font-size: 1rem !important;
+    margin-bottom: 24px !important;
+  }
+
+  .contact-btn {
+    padding: 14px 32px !important;
+    font-size: 0.95rem !important;
+  }
+
+  .footer-grid {
+    gap: 28px !important;
+    padding-top: 28px !important;
+    grid-template-columns: 1fr 1fr !important;
+  }
+
+  .footer-copyright-col {
+    flex-direction: column !important;
+    gap: 16px !important;
+  }
+
+  .back-to-top-btn {
+    margin-left: 0 !important;
+    width: 42px !important;
+    height: 42px !important;
+  }
+
+  /* Project Modal */
+  .modal-close-btn {
+    top: 16px !important;
+    right: 16px !important;
+    width: 42px !important;
+    height: 42px !important;
+  }
+
+  .modal-hero-wrap {
+    height: 42vh !important;
+  }
+
+  .modal-content-wrap {
+    margin-top: -24px !important;
+    padding: 0 5vw 48px !important;
+  }
+
+  .modal-title {
+    font-size: clamp(2rem, 8vw, 3.2rem) !important;
+    margin-bottom: 18px !important;
+  }
+
+  .modal-overview-grid {
+    grid-template-columns: 1fr !important;
+    gap: 24px !important;
+    margin-top: 24px !important;
+  }
+
+  .modal-cta-btn {
+    padding: 12px 24px !important;
+    font-size: 0.9rem !important;
+  }
+
+  .modal-deep-dive {
+    margin-top: 36px !important;
+    padding-top: 36px !important;
+  }
+
+  .modal-section-title {
+    font-size: clamp(1.4rem, 5vw, 1.8rem) !important;
+    margin-bottom: 14px !important;
+  }
+
+  .case-study-image.mobile {
+    max-width: 280px !important;
+    margin-bottom: 36px !important;
+  }
+
+  .case-study-image.desktop {
+    max-width: 100% !important;
+    margin-bottom: 36px !important;
+  }
+}
+
+/* ==========================================================================
+   COMPACT MOBILE VIEWPORTS (<= 480px)
+   ========================================================================== */
+@media (max-width: 480px) {
+  .section-container {
+    padding: 56px 5vw !important;
+  }
+
+  .text-section-title {
+    font-size: clamp(1.65rem, 6vw, 2rem);
+    margin-bottom: 1rem;
+  }
+
+  .text-body {
+    font-size: 0.9375rem;
+    line-height: 1.6;
+  }
+
+  .hero-title {
+    font-size: clamp(2.5rem, 12vw, 3.4rem) !important;
+  }
+
+  .hero-image {
+    width: 165px !important;
+    height: 235px !important;
+  }
+
+  .footer-grid {
+    grid-template-columns: 1fr !important;
+    gap: 24px !important;
+  }
+
+  .contact-btn {
+    padding: 12px 28px !important;
+    font-size: 0.9rem !important;
+  }
+}

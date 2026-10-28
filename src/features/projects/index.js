@@ -1,0 +1,5 @@
+export { default as ProjectsSection } from './components/ProjectsSection'
+export { default as ProjectComposition } from './components/ProjectComposition'
+export { default as ProjectArchive } from './components/ProjectArchive'
+export { default as BrowserWindow } from './components/BrowserWindow'
+export * from './data/projectsData'
